@@ -1,54 +1,49 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './index.scss'
+import {Navlinks} from './index.js'
+import {motion} from 'framer-motion'
 
 const TopBar = () => {
+    const linkVariants = {
+        hidden:{
+            opacity:0,
+        },
+        visible:(i)=>({
+            opacity:1,
+            transition:{
+                delay: i * 0.2,
+                duration: 1,
+            }
+        })
+    }
   return (
-    <div className="w-full h-[70px] flex items-center justify-between">
-        <div className="flex p-4 logo-container">
-            <h1 className='text-2xl font-bold ml-10'>Kristal Dev</h1>
+    <div className="w-full h-[70px] flex items-center justify-between logo-container">
+        <div className="flex p-4 logo-container-2">
+            <Link to='/' className='text-2xl font-bold ml-10'>Kristal Dev</Link>
         </div>
         <div className="flex flex-row gap-3 mr-20 topbar">
-            <NavLink
-                to='/'
-                className={({ isActive }) => 
-                    `text-[18px] font-semibold p-2 hover:bg-[#4b5563] hover:bg-opacity-15 hover:rounded-md ${isActive ? 'bg-[#4b5563] bg-opacity-15 rounded-md' : ''}`
-                }
-            >
-                Home
-            </NavLink>
-            <NavLink
-                to='/about-me'
-                className={({ isActive }) => 
-                    `text-[18px] font-semibold p-2 hover:bg-[#4b5563] hover:bg-opacity-15 hover:rounded-md ${isActive ? 'bg-[#4b5563] bg-opacity-15 rounded-md' : ''}`
-                }
-            >
-                About
-            </NavLink>
-            <NavLink
-                to='/contact-me'
-                className={({ isActive }) => 
-                    `text-[18px] font-semibold p-2 hover:bg-[#4b5563] hover:bg-opacity-15 hover:rounded-md ${isActive ? 'bg-[#4b5563] bg-opacity-15 rounded-md' : ''}`
-                }
-            >
-                Contact
-            </NavLink>
-            <NavLink
-                to='/projects'
-                className={({ isActive }) => 
-                    `text-[18px] font-semibold p-2 hover:bg-[#4b5563] hover:bg-opacity-15 hover:rounded-md ${isActive ? 'bg-[#4b5563] bg-opacity-15 rounded-md' : ''}`
-                }
-            >
-                Projects
-            </NavLink>
-            <NavLink
-                to='/xp'
-                className={({ isActive }) => 
-                    `text-[18px] font-semibold p-2 hover:bg-[#4b5563] hover:bg-opacity-15 hover:rounded-md ${isActive ? 'bg-[#4b5563] bg-opacity-15 rounded-md' : ''}`
-                }
-            >
-                XP Level
-            </NavLink>
+            {
+                Navlinks.map((navlink, i)=>(
+                    <motion.div
+                        className='w-max h-max'
+                        custom={i}
+                        initial="hidden"
+                        whileInView="visible"
+                        variants={linkVariants}
+                        key={i}
+                    >
+                        <NavLink
+                            to={`/${navlink}`}
+                            className={({ isActive }) => 
+                                `text-[18px] font-semibold p-2 hover:bg-[#4b5563] hover:bg-opacity-15 hover:rounded-md ${isActive ? 'bg-[#4b5563] bg-opacity-15 rounded-md' : ''}`
+                            }
+                        >  
+                            {navlink}
+                        </NavLink>
+                    </motion.div>
+                ))
+            }
         </div>
     </div>
   )

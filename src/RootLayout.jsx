@@ -23,7 +23,7 @@ const RootLayout = () => {
       <div className={`${showMenu ? 'flex h-max w-full' : 'hidden'}`}>
         <MenuBar toggleMenu={toggleMenu}/>
       </div>
-      <section className='w-full h-screen overflow-y-hidden'>
+      <section className='w-full h-screen'>
         <Outlet />
       </section>
     </div>
