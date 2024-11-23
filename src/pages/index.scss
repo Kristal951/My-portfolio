@@ -12,11 +12,11 @@
 .details-container-2{
     @media (min-width: 360px) and (max-width: 600px) {
         flex-direction: column;
-        padding: 1rem;
+        padding: 0.8rem;
+        gap: 5px;
 
-        .level-container{
-            width: 100%;
-            height: 100%;
+        .level-container-lg{
+            display: none;
         }
         .img-container{
             display: none;
@@ -31,22 +31,129 @@
         .xp-container{
             width: 45%;
         }
+
+        .level-container-sm{
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: 360px) and (max-width: 600px) {
+    .upper-text{
+        display: none;
     }
 }
 
 .contact-container{
     @media (min-width: 360px) and (max-width: 600px) {
         flex-direction: column;
-        padding: 1rem;
+        padding: 0rem;
+        height: 100vh;
 
+        .contact-container-2{
+            align-items: flex-start;
+            height: 30px;
+        }
         .contact-links-container{
             width: 100%;
-            height: 50%;
+            height: max-content;
+            padding-top: 0;
+            flex-direction: column;
+            gap: 0;
+            justify-items: flex-start;
+            margin: 0;
+            padding: 0;
+
+            img{
+                width: 25px;
+                height: 25px;
+            }
+
+            p{
+                font-size: 14px;
+                text-decoration: underline;
+                color: blue;
+            }
+
+            .contact-link-card{
+                background: transparent;
+                box-shadow: none;
+                
+            }
+        }
+
+        .contact-container-2{
+            width: 100%;
+            height: 30%;
+
+            // .long-text-container{
+            //    width: 100%;
+
+            //    .long-text{
+            //       width: 74%;
+            //    }
+            // }
         }
 
         .contact-form-container-1{
+            margin: 0;
             width: 100%;
             height: 70%;
+        }
+    }
+}
+.card {
+    width: 50px;
+    height: 50px;
+    perspective: 1000px; 
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d; 
+        transition: transform 0.6s ease; 
+
+        &:hover {
+            transform: rotateY(180deg); 
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .front {
+            background-color: #fff; 
+            z-index: 2; 
+        }
+
+        .back {
+            background-color: #000; 
+            color: #fff;
+            transform: rotateY(180deg); 
+        }
+    }
+}
+.skillCards{
+    @media (min-width: 360px) and (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+        justify-items: flex-start;
+
+        .inner{
+            width: 100%;
         }
     }
 }
