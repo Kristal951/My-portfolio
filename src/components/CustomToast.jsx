@@ -17,7 +17,7 @@ const CustomToast = ({ message, type = 'info', duration = 3000, onClose }) => {
 
   return (
     <div
-      className={`fixed top-5 right-5 px-4 py-3 rounded shadow-lg text-white flex items-center justify-between min-w-[200px] ${typeStyles[type]} opacity-90 transition-opacity duration-300`}
+      className={`fixed top-5 right-5 px-4 py-3 rounded shadow-lg text-white flex items-center justify-between min-w-[70%] ${typeStyles[type]} opacity-100 transition-opacity duration-300`}
     >
       <span>{message}</span>
       <button

@@ -1,98 +1,82 @@
-import React from 'react'
-import ContactForm from '../components/ContactForm'
-import './index.scss'
-import { IoLinkSharp } from "react-icons/io5";
-import { links } from '../components'
-import {motion } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import ContactForm from "../components/ContactForm";
+import { motion, useInView } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
+import { useRef } from "react";
 
 const Contact = () => {
-    const linkVariants = {
-        hidden:{
-            opacity:0,
-            x: -3,
-        },
-        visible:(i)=>({
-            opacity:1,
-            x:0,
-            transition:{
-                delay: i * 1,
-                duration: 1,
-                type: "easeInOut",
-            }
-        })
-    }
-    const HeaderVariants = {
-        hidden:{
-            opacity:0,
-            y: -20,
-        },
-        visible:{
-            opacity:1,
-            y:0,
-            transition:{
-                delay: 0.2,
-                duration: 0.8,
-            }
-        }
-    }
-  return (
-    <div className='w-full h-screen p-2 pt-0 flex flex-col overflow-hidden'>
-        <motion.div className="flex w-full flex-col h-max items-center justify-center" variants={HeaderVariants} initial="hidden" whileInView="visible">
-            <div className="flex-row flex gap-1">
-                <p className='flex-row flex text-sm font-medium upper-text'>
-                    Let's get in touch
-                </p>
-                
-                
-            </div>
-            <h2 className='text-2xl font-bold flex-row flex gap-2'>
-                <p>
-                    Contact Me
-                </p>
-            </h2>
-        </motion.div>
-        <div className="flex w-full h-full flex-row contact-container">
-            <div className="flex w-[50%] h-[80%] items-center justify-start contact-container-2">
-                <div className="flex w-max h-max p-2 flex-col contact-links-container gap-6">
-                        {
-                            
-                            links.map((link, i)=>(
-                                <motion.div 
-                                    className="flex h-max w-max items-center justify-center gap-[5px] p-2 bg-gray-200 rounded-lg shadow-md long-text-container contact-link-card"
-                                    key={i}
-                                    custom={i}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    variants={linkVariants}
-                                >
-                                    <a 
-                                        href={link.href}
-                                        target='_blank'
-                                        rel="noreferrer"
-                                        className='flex flex-row items-center justify-center gap-1'
-                                    > 
-                                        <img 
-                                            src={link.icon}
-                                            alt={link.alt} 
-                                            className='w-[40px] h-[40px]'
-                                        />
-                                        <IoLinkSharp/> 
-                                        <p className='text-[18px] font-semibold truncate long-text'>
-                                            {link.text}
-                                        </p>
-                                    </a>
-                                </motion.div>
-                            ))
-                        }
-                </div>
-            </div>
-            <div className="flex w-[50%] h-full justify-end flex-col items-center contact-form-container-1">
-                <h2 className='text-xl font-bold'>Leave a message</h2>
-                <ContactForm/>
-            </div>
-        </div>
-    </div>
-  )
-}
+  const [showTypewriter, setShowTypewriter] = useState(false);
+  const textRef = useRef(null);
+  const isInView = useInView(textRef, { once: false, margin: "-20% 0px" });
 
-export default Contact
+  useEffect(() => {
+    if (isInView) {
+      setShowTypewriter(false);
+      setTimeout(() => setShowTypewriter(true), 100); 
+    }
+  }, [isInView]);
+
+  const HeaderVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.2, duration: 0.8 },
+    },
+  };
+
+  return (
+    <div className="w-full md:pt-[80px] py-4 md:pb-[80px] h-screen flex flex-col">
+      <motion.div
+        className="flex w-full flex-col h-max items-center justify-center pt-8 md:p-0"
+        variants={HeaderVariants}
+        initial="hidden"
+        whileInView="visible"
+      >
+        <div className="flex-row flex gap-1" ref={textRef}>
+          <p className="font-bold text-xl text-black">
+            {
+              showTypewriter && (
+                <Typewriter
+                  words={["<Contact Me />"]}
+                  loop={1}
+                  typeSpeed={50}
+                  deleteSpeed={0}
+                  delaySpeed={1000}
+                />
+              )
+            }
+          </p>
+        </div>
+      </motion.div>
+
+      <div className="flex w-full h-full lg:flex-col items-center flex-col md:pt-[150px] p-2 md:p-0">
+        <div
+          className="flex md:w-[50%] w-full lg:h-[80%] h-[50%] items-center justify-start"
+          ref={textRef}
+        >
+          <p className="text-gray-700 text-center text-[15px] sm:text-[16px] max-w-2xl">
+            {showTypewriter && (
+              <Typewriter
+                words={[
+                  "I'm always excited to connect with fellow creatives, developers, and forward-thinking individuals. Whether you're looking to collaborate on a project, discuss new ideas, or simply want to say hello, I’d love to hear from you. I’m passionate about building meaningful digital experiences and enjoy working on projects that challenge me to grow. Don’t hesitate to reach out — I’m always open to opportunities, feedback, or a good conversation. Let’s build something amazing together.",
+                ]}
+                loop={1}
+                cursor
+                typeSpeed={30}
+                deleteSpeed={0}
+                delaySpeed={1000}
+              />
+            )}
+          </p>
+        </div>
+
+        <div className="flex w-full lg:w-[50%] h-full flex-col gap-2 items-center">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;

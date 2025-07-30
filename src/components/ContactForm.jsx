@@ -1,8 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import ToastManager from './ToastManager'; // Import custom toast manager
-import './index.scss';
+import ToastManager from './ToastManager'; 
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -101,7 +100,7 @@ const ContactForm = () => {
 
   return (
     <motion.div 
-      className="w-full h-screen flex p-2" 
+      className="w-full h-full lg:h-full flex md:p-2 mt-4" 
       variants={containerVariant}
       initial="hidden"
       whileInView="visible"
@@ -110,7 +109,7 @@ const ContactForm = () => {
         <motion.input
           name="user_name"
           type="text"
-          className="w-4/5 h-[40px] bg-gray-200 focus:outline-none rounded-md p-2 input"
+          className="md:w-4/5 w-full h-[45px] focus:ring-2 ring-black bg-gray-200 focus:outline-none rounded-md p-2 input"
           placeholder="Your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -121,7 +120,7 @@ const ContactForm = () => {
         <motion.input
           name="user_tel"
           type="tel"
-          className="w-4/5 h-[40px] bg-gray-200 focus:outline-none rounded-md p-2 input"
+          className="md:w-4/5 w-full h-[45px] focus:ring-2 ring-black bg-gray-200 focus:outline-none rounded-md p-2 input"
           placeholder="Your phone number"
           value={tel}
           onChange={(e) => setTel(e.target.value)}
@@ -132,7 +131,7 @@ const ContactForm = () => {
         <motion.input
           name="user_email"
           type="email"
-          className="w-4/5 h-[40px] bg-gray-200 focus:outline-none rounded-md p-2 input"
+          className="md:w-4/5 w-full h-[45px] focus:ring-2 ring-black bg-gray-200 focus:outline-none rounded-md p-2 input"
           placeholder="Your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -143,7 +142,7 @@ const ContactForm = () => {
         <motion.textarea
           placeholder="Your message"
           name="message"
-          className="w-4/5 h-2/5 bg-gray-200 focus:outline-none rounded-md p-2 input"
+          className="md:w-4/5 w-full md:h-2/5 h-[70%] focus:ring-2 ring-black bg-gray-200 focus:outline-none rounded-md p-2 input"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           variants={inputVariant}

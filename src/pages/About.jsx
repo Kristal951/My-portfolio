@@ -1,97 +1,72 @@
-import React from 'react';
-import Pic from '../assets/images/EditedPic.png';
-import { motion } from 'framer-motion';
-import './index.scss'
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
+// import image from "../assets/about.jpg";
+
+const textVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 const About = () => {
-  
-  const pictureVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.8 
-    },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { 
-        duration: 0.8 
-      } 
-    }
-  };
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.5 }); // ← Detect every entry
+  const [typewriterKey, setTypewriterKey] = useState(0);
 
-  const buttonVariant={
-    changeBg:{
-      backgroundColor: 'black',
-      color: 'white',
-      transition:{
-        duration: 0.8,
-        type: 'ease-in',
-      }
+  // Reset Typewriter on every view
+  useEffect(() => {
+    if (isInView) {
+      setTypewriterKey(prev => prev + 1); // Trigger re-render
     }
-  }
-
-  const textVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20 
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        duration: 0.8, 
-        delay: 0.4 
-      } 
-    }
-  };
+  }, [isInView]);
 
   return (
-    <div className='w-full h-full flex flex-col'>
-      <div className="flex flex-row w-full h-full items-center justify-center gap-6 details-container">
-        <motion.div 
-          className="flex w-[300px] h-[300px] items-center justify-center"
-          initial="hidden"
-          whileInView="visible"
-          variants={pictureVariants}
-        >
-          <img src={Pic} alt='developer Pic' className='object-cover w-full h-full rounded-full border-[2px] border-black'/>
+    <motion.div
+      ref={ref}
+      variants={textVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className="flex flex-col md:flex-row gap-10 items-center justify-between w-full px-5 md:px-20 mt-12 md:mt-28"
+    >
+      {/* Text Section */}
+      <div className="w-full md:w-[60%]">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center md:text-left">
+          <Typewriter
+            key={typewriterKey}
+            words={["<About Me />"]}
+            loop={1}
+            typeSpeed={50}
+            deleteSpeed={0}
+            delaySpeed={1000}
+          />
+        </h1>
+
+        <motion.div variants={textVariants}>
+          <p className="text-lg leading-relaxed text-gray-700 mb-4">
+            Hello! I'm a full-stack developer with a strong passion for building modern, intuitive, and performant web and mobile applications.
+            With a background in JavaScript, React, React Native, Node.js, and MongoDB, I thrive in transforming complex problems into clean, efficient code.
+          </p>
+          <p className="text-lg leading-relaxed text-gray-700 mb-4">
+            I have experience working across the entire development lifecycle—from designing responsive interfaces to developing RESTful APIs and deploying scalable systems.
+            I also enjoy experimenting with animations, real-time communication using WebSockets, and clean UI/UX practices.
+          </p>
+          <p className="text-lg leading-relaxed text-gray-700">
+            When I'm not coding, I love learning new technologies, contributing to open-source projects, or brainstorming product ideas that make users' lives easier.
+            Let’s build something great together!
+          </p>
         </motion.div>
-
-        <motion.div 
-          className="flex flex-col items-center justify-center h-max w-max gap-4"
-          initial="hidden"
-          whileInView="visible"
-          variants={textVariants}
-        >
-          <div className="flex flex-col items-center justify-center h-max w-max">
-            <p className='text-sm font-medium'>Hello, I'm</p>
-            <h2 className='font-bold text-3xl'>Bethel Wisdom</h2>
-            <h4 className='font-semibold text-xl'>A Fullstack Web Developer</h4>
-          </div>
-
-          <div className="flex flex-row w-max h-max items-center justify-center gap-3">
-            <motion.button 
-              className='p-3 text-xl font-semibold border-black border-[2px] rounded-3xl btn'
-              whileHover="changeBg"
-              variants={buttonVariant}
-            >
-              Download CV
-            </motion.button>
-
-            <motion.button 
-              className='p-3 text-xl font-semibold border-black border-[2px] rounded-3xl btn'
-              whileHover="changeBg"
-              variants={buttonVariant}
-            >
-              Contact Me
-            </motion.button>
-
-          </div>
-        </motion.div>
-
       </div>
-    </div>
+
+      {/* Image Section */}
+      <div className="w-full md:w-[40%] flex justify-center">
+        {/* <img
+          src={image}
+          alt="About illustration"
+          className="w-[200px] md:w-[400px] h-auto rounded-full md:rounded-2xl shadow-xl border-4 border-white object-cover"
+        /> */}
+      </div>
+    </motion.div>
   );
-}
+};
 
 export default About;
