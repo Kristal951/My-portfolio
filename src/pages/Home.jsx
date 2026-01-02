@@ -62,7 +62,7 @@ const Home = () => {
 
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-6 w-full h-full details-container">
         <motion.div
-          className="flex w-[300px] h-[300px] items-center justify-center"
+          className="flex w-[250px] h-[250px] md:w-[300px] md:h-[300px] items-center justify-center"
           initial="hidden"
           whileInView="visible"
           variants={pictureVariants}
@@ -90,7 +90,7 @@ const Home = () => {
                 delaySpeed={1000}
               />
             </p>
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-3xl font-bold ">
               <Typewriter
                 words={["Bethel Wisdom"]}
                 loop={1}
@@ -99,7 +99,7 @@ const Home = () => {
                 delaySpeed={1000}
               />
             </h2>
-            <h4 className="text-xl font-semibold">
+            <h4 className="text-xl font-semibold font-body2">
               <Typewriter
                 words={["A Fullstack Web Developer And Mobile App Developer"]}
                 loop={1}
@@ -119,13 +119,14 @@ const Home = () => {
               Download CV
             </motion.button>
 
-            <motion.button
+            <motion.a
+              href="#Contact"
               className="px-5 py-3 text-xl font-semibold border-[2px] border-black rounded-3xl btn"
               whileHover="changeBg"
               variants={buttonVariant}
             >
               Contact Me
-            </motion.button>
+            </motion.a>
           </div>
 
           <div className="p-1 flex flex-row gap-2">

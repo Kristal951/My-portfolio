@@ -23,13 +23,17 @@ import { BsPersonCircle } from "react-icons/bs";
 import { FiFolder } from "react-icons/fi";
 import { BiCodeAlt } from "react-icons/bi";
 import { MdContactMail } from "react-icons/md";
+import { FaCalculator, FaHeart, FaTasks } from "react-icons/fa";
+
+import CalcexSR from "../assets/Videos/Calcex_screen_record.mp4";
+import TodoAppSR from "../assets/Videos/TodoMobile_screen_record.mp4";
 
 export const Navlinks = [
   {
     id: "home",
     label: "Home",
     path: "Home",
-    icon: <AiFillHome /> ,
+    icon: <AiFillHome />,
   },
   {
     id: "about",
@@ -53,7 +57,7 @@ export const Navlinks = [
     id: "contact",
     label: "Contact",
     path: "Contact",
-    icon: <MdContactMail /> ,
+    icon: <MdContactMail />,
   },
 ];
 
@@ -84,111 +88,143 @@ export const links = [
   },
 ];
 
-
 export const AllSkill = [
   {
     id: "html",
     label: "Html",
     barWidth: 95,
-    category: 'frontend',
+    category: "frontend",
     image: Html_Image,
   },
   {
     id: "css",
     label: "Css",
     barWidth: 90,
-    category: 'frontend',
+    category: "frontend",
     image: Css_Image,
   },
   {
     id: "javascript",
     label: "Javascript",
     barWidth: 80,
-    category: 'frontend',
+    category: "frontend",
     image: Js_image,
   },
   {
     id: "scss",
     label: "Scss",
     barWidth: 80,
-    category: 'frontend',
+    category: "frontend",
     image: Scss_Image,
   },
   {
     id: "react",
     label: "React",
     barWidth: 94,
-    category: 'frontend',
+    category: "frontend",
     image: React_Image,
   },
   {
     id: "react-native",
     label: "React Native",
     barWidth: 80,
-    category: 'frontend',
+    category: "frontend",
     image: ReactNative_Image,
   },
   {
     id: "tailwindcss",
     label: "TailwindCss",
     barWidth: 80,
-    category: 'frontend',
+    category: "frontend",
     image: Tailwind_Image,
   },
   {
     id: "nodejs",
     label: "Nodejs",
     barWidth: 85,
-    category: 'backend',
-    image: NodeJs_image ,
+    category: "backend",
+    image: NodeJs_image,
   },
   {
     id: "mongodb",
     label: "MongoDB",
     barWidth: 90,
-    category: 'backend',
+    category: "backend",
     image: MongoDB_Image,
   },
   {
     id: "express",
     label: "Express",
     barWidth: 80,
-    category: 'backend',
+    category: "backend",
     image: Express_Image,
   },
   {
     id: "sql",
     label: "Sql",
     barWidth: 80,
-    category: 'backend',
+    category: "backend",
     image: Sql_Image,
   },
   {
     id: "figma",
     label: "Figma",
     barWidth: 85,
-    category: 'tools',
+    category: "tools",
     image: Figma_Image,
   },
   {
     id: "git",
     label: "Git",
     barWidth: 90,
-    category: 'tools',
+    category: "tools",
     image: Git_Image,
   },
   {
     id: "github",
     label: "Github",
     barWidth: 90,
-    category: 'tools',
+    category: "tools",
     image: GitHub_Image,
   },
   {
     id: "VS code",
     label: "VS code",
     barWidth: 80,
-    category: 'tools',
+    category: "tools",
     image: VSCode_Image,
+  },
+];
+
+export const projects = [
+  {
+    title: "Calcex Calculator",
+    description:
+      "A fullstack scientific calculator with history, memory, and theme support. Includes a real-time all-currency converter. Built with React-native and nodejs.",
+    icon: <FaCalculator className="text-yellow-500 text-4xl sm:text-5xl" />,
+    media: CalcexSR,
+    isVideo: true,
+    link: "/downloads/calcex.apk",
+    isDownload: true,
+  },
+  {
+    title: "Todo Mobile",
+    description:
+      "A simple and intuitive task management mobile app that helps users create, edit, and track their daily tasks efficiently. Built with React Native and AsyncStorage for offline support.",
+    icon: <FaTasks className="text-blue-500 text-4xl sm:text-5xl" />,
+    media: TodoAppSR,
+    isVideo: true,
+    link: "/downloads/TodoApp.apk",
+    isDownload: true,
+  },
+  {
+    title: "Matchmaker",
+    description:
+      "A matchmaking app with AI-powered compatibility scoring and real-time chat using Socket.IO.",
+    icon: <FaHeart className="text-pink-500 text-4xl sm:text-5xl" />,
+    media: null,
+    isVideo: false,
+    link: "#",
+    isDownload: false,
   },
 ];

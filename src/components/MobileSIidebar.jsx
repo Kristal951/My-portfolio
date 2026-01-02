@@ -1,44 +1,48 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Navlinks } from './index.js'
-import { motion, AnimatePresence } from 'framer-motion'
-import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi'
+import React, { useState, useRef, useEffect } from "react";
+import { Navlinks } from "./index.js";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
 const MobileSidebar = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const sidebarRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("Home");
+  const sidebarRef = useRef(null);
 
   const sidebarVariants = {
-    hidden: { x: '-100%' },
+    hidden: { x: "-100%" },
     visible: {
       x: 0,
-      transition: { type: 'spring', stiffness: 300, damping: 30 },
+      transition: { type: "spring", stiffness: 300, damping: 30 },
     },
-    exit: { x: '-100%', transition: { duration: 0.3 } },
-  }
+    exit: { x: "-100%", transition: { duration: 0.3 } },
+  };
 
-  // Close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
-    }
+    };
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener("mousedown", handleClickOutside);
     }
 
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [isOpen])
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
+  const handleNavlinkClick = (navlink) => {
+    setActiveLink(navlink);
+    setIsOpen(false);
+  };
 
   return (
     <div className="md:hidden z-[100] w-full">
-      {/* Toggle Button */}
       <div
         className={`fixed top-4 left-4 z-[100] transition-transform ${
-          isOpen ? 'translate-x-72' : 'translate-x-0'
+          isOpen ? "translate-x-72" : "translate-x-0"
         }`}
       >
         <button
@@ -74,10 +78,12 @@ const MobileSidebar = () => {
                 <a
                   key={navlink.id}
                   href={`#${navlink.path}`}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 text-xl font-medium text-gray-800 hover:text-blue-600 transition duration-200 relative group"
+                  onClick={() => handleNavlinkClick(navlink.path)}
+                  className={`flex items-center gap-4 text-xl p-2 font-medium text-gray-800 hover:text-blue-600 transition duration-200 relative group ${
+                    activeLink === navlink.path ? "bg-black text-white rounded-r-3xl" : ""
+                  }`}
                 >
-                  <span className="text-black">{navlink.icon}</span>
+                  <span className="">{navlink.icon}</span>
                   <span className="group-hover:underline">{navlink.label}</span>
                 </a>
               ))}
@@ -86,7 +92,7 @@ const MobileSidebar = () => {
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 
-export default MobileSidebar
+export default MobileSidebar;
