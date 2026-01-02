@@ -3,63 +3,53 @@ import { Navlinks } from "./index.js";
 import { motion } from "framer-motion";
 
 const TopBar = () => {
+  const [activeLink, setActiveLink] = useState("Home");
+
+  // Framer Motion variants for link fade-in
   const linkVariants = {
-    hidden: {
-      opacity: 0,
-    },
+    hidden: { opacity: 0 },
     visible: (i) => ({
       opacity: 1,
-      transition: {
-        delay: i * 0.2,
-        duration: 1,
-      },
+      transition: { delay: i * 0.15, duration: 0.8 },
     }),
   };
-  const [activeLink, setActiveLink] = useState('Home');
 
   return (
-    <div className="w-full hidden md:flex h-[70px] lg:p-8 z-50 bg-white fixed items-center justify-between logo-container">
-      <div className="flex p-4 logo-container-2">
-        <a href="#home" className="text-2xl font-bold ml-10">
+    <header className="w-full hidden md:flex h-[70px] lg:px-8 z-50 bg-white fixed items-center justify-between">
+      {/* Logo */}
+      <div className="flex items-center px-4">
+        <a href="#home" className="text-2xl font-geistBold ml-10">
           Kristal Dev
         </a>
       </div>
 
-      <nav className="flex w-max p-2 gap-2 mr-8 items-center justify-between">
+      {/* Navigation Links */}
+      <nav className="flex items-center gap-4 px-4 mr-8">
         {Navlinks.map((navlink, i) => (
           <motion.div
-            className="w-max h-max flex items-center justify-center p-2 gap-[0.20rem] hover:text-black hover:font-bold"
+            key={navlink.id}
+            className="flex items-center border-r-2 last:border-r-0 pr-3"
             custom={i}
             initial="hidden"
             whileInView="visible"
+            viewport={{ once: true }}
             variants={linkVariants}
-            key={navlink.id}
           >
-            {activeLink === navlink.path && (
-              <span className="text-xl font-body md:text-xl text-black font-bold">
-                {"<"}
-              </span>
-            )}
-
             <a
               href={`#${navlink.path}`}
               onClick={() => setActiveLink(navlink.path)}
-              className={`text-[18px] md:text-xl font-body font-semibold p-0 transition-all duration-200 hover:font-bold hover:text-black ${
+              className={`text-[18px] transition-all duration-200 ${
                 activeLink === navlink.path
-                  ? "text-black font-bold"
-                  : "text-gray-400"
+                  ? "text-black font-geistBold"
+                  : "text-gray-400 font-katanmruy hover:text-black"
               }`}
             >
               {navlink.label}
             </a>
-
-            {activeLink === navlink.path && (
-              <span className="text-black md:text-xl font-body font-bold">{"/>"}</span>
-            )}
           </motion.div>
         ))}
       </nav>
-    </div>
+    </header>
   );
 };
 

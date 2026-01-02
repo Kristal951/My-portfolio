@@ -48,9 +48,9 @@ export const Navlinks = [
     icon: <FiFolder />,
   },
   {
-    id: "skills",
-    label: "Skills",
-    path: "Skills",
+    id: "arsenal",
+    label: "Arsenal",
+    path: "Arsenal",
     icon: <BiCodeAlt />,
   },
   {
