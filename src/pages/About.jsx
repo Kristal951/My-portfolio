@@ -1,72 +1,107 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-import { Typewriter } from "react-simple-typewriter";
-// import image from "../assets/about.jpg";
+import React from "react";
+import AboutCard from "../components/AboutCard";
+import { FaCode } from "react-icons/fa6";
+import { RiGraduationCapFill } from "react-icons/ri";
+import { PiSuitcaseSimpleBold } from "react-icons/pi";
+import GithubIMG from "../assets/images/Github.png";
+import GitIMG from "../assets/images/Git.png";
+import VsCodeIMG from "../assets/images/VS_code.png";
+import ExpressIMG from "../assets/images/Express.png";
+import TailwindIMG from "../assets/images/Tailwind.png";
+import NodeJSIMG from "../assets/images/programing.png";
 
-const textVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+const About = () => (
+  <div className="flex flex-col pt-2 h-full w-full items-center justify-start">
+    <div className="flex ">
+      <h1 className="font-bold text-xl">{"<About Me/>"}</h1>
+    </div>
+    <div className="flex w-full justify-center">
+      <div className="md:grid grid-cols-2 p-4 md:p-10 flex flex-col w-full max-w-8xl">
+        <div className="hidden md:block"></div>
 
-const About = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.5 }); // ← Detect every entry
-  const [typewriterKey, setTypewriterKey] = useState(0);
-
-  // Reset Typewriter on every view
-  useEffect(() => {
-    if (isInView) {
-      setTypewriterKey(prev => prev + 1); // Trigger re-render
-    }
-  }, [isInView]);
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={textVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      className="flex flex-col md:flex-row gap-10 items-center justify-between w-full px-5 md:px-20 mt-12 md:mt-28"
-    >
-      {/* Text Section */}
-      <div className="w-full md:w-[60%]">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center md:text-left">
-          <Typewriter
-            key={typewriterKey}
-            words={["<About Me />"]}
-            loop={1}
-            typeSpeed={50}
-            deleteSpeed={0}
-            delaySpeed={1000}
-          />
-        </h1>
-
-        <motion.div variants={textVariants}>
-          <p className="text-lg leading-relaxed text-gray-700 mb-4">
-            Hello! I'm a full-stack developer with a strong passion for building modern, intuitive, and performant web and mobile applications.
-            With a background in JavaScript, React, React Native, Node.js, and MongoDB, I thrive in transforming complex problems into clean, efficient code.
+        <div className=" md:pr-8 flex flex-col gap-4 justify-between">
+          <p className="font-body2 text-center md:text-left">
+            Hi, I’m <b>Bethel</b>, a passionate software developer, with over 3+
+            years of experience. i am focused on building sleek, user-friendly
+            digital experiences. I make <b>web </b>
+            applications using the <b>MERN</b> stack and also create Mobile
+            applications using <b>React Native</b> creating projects that blend
+            creativity and functionality. I currently work with SQWADS, where I
+            help build scalable and engaging digital products. I also love
+            working on personal projects like Talkmore, Calcex, and Projex, all
+            inspired by my drive to innovate and make technology more impactful
+            and accessible.
           </p>
-          <p className="text-lg leading-relaxed text-gray-700 mb-4">
-            I have experience working across the entire development lifecycle—from designing responsive interfaces to developing RESTful APIs and deploying scalable systems.
-            I also enjoy experimenting with animations, real-time communication using WebSockets, and clean UI/UX practices.
-          </p>
-          <p className="text-lg leading-relaxed text-gray-700">
-            When I'm not coding, I love learning new technologies, contributing to open-source projects, or brainstorming product ideas that make users' lives easier.
-            Let’s build something great together!
-          </p>
-        </motion.div>
+
+          <div className="md:grid grid-cols-3 md:gap-8 mt-8 flex flex-col gap-10">
+            <AboutCard
+              title={"Languages"}
+              description={"ReactJS, Javascript, HTML, CSS, React Native"}
+              Icon={FaCode}
+            />
+            <AboutCard
+              title={"Education"}
+              description={"Currently processing B.S.C in computer science"}
+              Icon={RiGraduationCapFill}
+            />
+            <AboutCard
+              title={"Projects"}
+              description={"Over 5+ projects"}
+              Icon={PiSuitcaseSimpleBold}
+            />
+          </div>
+
+          <div className="flex mt-6 flex-col">
+            <h2 className="text-xl font-bold font-heading">Tools I use:</h2>
+            <div className="flex flex-wrap gap-2 md:gap-4 mt-4">
+              <div className="p-2 flex w-max items-center justify-center border rounded-md">
+                <img
+                  src={GithubIMG}
+                  className="w-[50px] h-[50px] object-cover"
+                  alt="GitHub icon"
+                />
+              </div>
+              <div className="p-2 flex w-max items-center justify-center border rounded-md">
+                <img
+                  src={GitIMG}
+                  className="w-[50px] h-[50px] object-cover"
+                  alt="Git icon"
+                />
+              </div>
+              <div className="p-2 flex w-max items-center justify-center border rounded-md">
+                <img
+                  src={VsCodeIMG}
+                  className="w-[50px] h-[50px] object-cover"
+                  alt="VS Code icon"
+                />
+              </div>
+              <div className="p-2 flex w-max items-center justify-center border rounded-md">
+                <img
+                  src={ExpressIMG}
+                  className="w-[50px] object-cover h-[50px]"
+                  alt="Express.js icon"
+                />
+              </div>
+              <div className="p-2 flex w-max items-center justify-center border rounded-md">
+                <img
+                  src={TailwindIMG}
+                  className="w-[50px] object-contain h-[50px]"
+                  alt="Tailwind CSS icon"
+                />
+              </div>
+              <div className="p-2 flex w-max items-center justify-center border rounded-md">
+                <img
+                  src={NodeJSIMG}
+                  className="w-[50px] object-contain h-[50px]"
+                  alt="Node.js icon"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* Image Section */}
-      <div className="w-full md:w-[40%] flex justify-center">
-        {/* <img
-          src={image}
-          alt="About illustration"
-          className="w-[200px] md:w-[400px] h-auto rounded-full md:rounded-2xl shadow-xl border-4 border-white object-cover"
-        /> */}
-      </div>
-    </motion.div>
-  );
-};
+    </div>
+  </div>
+);
 
 export default About;

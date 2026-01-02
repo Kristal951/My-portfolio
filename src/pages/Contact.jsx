@@ -12,7 +12,7 @@ const Contact = () => {
   useEffect(() => {
     if (isInView) {
       setShowTypewriter(false);
-      setTimeout(() => setShowTypewriter(true), 100); 
+      setTimeout(() => setShowTypewriter(true), 100);
     }
   }, [isInView]);
 
@@ -26,31 +26,29 @@ const Contact = () => {
   };
 
   return (
-    <div className="w-full md:pt-[80px] py-4 md:pb-[80px] h-screen flex flex-col">
+    <div className="w-full md:pt-[80px] py-4 md:pb-[80px] h-screen  flex flex-col">
       <motion.div
-        className="flex w-full flex-col h-max items-center justify-center pt-8 md:p-0"
+        className="flex w-full flex-col md:flex-row h-max items-center justify-center pt-8 md:p-0"
         variants={HeaderVariants}
         initial="hidden"
         whileInView="visible"
       >
         <div className="flex-row flex gap-1" ref={textRef}>
           <p className="font-bold text-xl text-black">
-            {
-              showTypewriter && (
-                <Typewriter
-                  words={["<Contact Me />"]}
-                  loop={1}
-                  typeSpeed={50}
-                  deleteSpeed={0}
-                  delaySpeed={1000}
-                />
-              )
-            }
+            {showTypewriter && (
+              <Typewriter
+                words={["<Contact Me />"]}
+                loop={1}
+                typeSpeed={50}
+                deleteSpeed={0}
+                delaySpeed={1000}
+              />
+            )}
           </p>
         </div>
       </motion.div>
 
-      <div className="flex w-full h-full lg:flex-col items-center flex-col md:pt-[150px] p-2 md:p-0">
+      <div className="flex w-full h-full md:flex-row items-center flex-col md:pt-[150px] p-2 md:p-0">
         <div
           className="flex md:w-[50%] w-full lg:h-[80%] h-[50%] items-center justify-start"
           ref={textRef}

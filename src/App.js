@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import TopBar from "./components/TopBar";
 import MobileSidebar from "./components/MobileSIidebar";
-import './index.scss'
+import "./index.scss";
 
 const App = () => {
   return (
@@ -16,20 +16,20 @@ const App = () => {
       <MobileSidebar />
       <TopBar />
 
-      <main className="h-screen overflow-y-scroll snap_container">
-        <section id="Home" className="snap_section">
+      <main className="h-screen overflow-y-scroll mt-[70px]">
+        <section id="Home" className="h-screen overflow-x-hidden">
           <Home />
         </section>
-        <section id="About" className="snap_section">
+        <section id="About" className="h-screen overflow-x-hidden">
           <About />
         </section>
-        <section id="Skills" className="snap_section">
-          <Skills />
-        </section>
-        <section id="Projects" className="snap_section">
+        <section id="Projects" className="min-h-screen overflow-x-hidden">
           <Projects />
         </section>
-        <section id="Contact" className="snap_section">
+        <section id="Skills" className="h-screen overflow-x-hidden">
+          <Skills />
+        </section>
+        <section id="Contact" className="h-screen overflow-x-hidden">
           <Contact />
         </section>
       </main>

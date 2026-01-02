@@ -60,7 +60,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="grid overflow-y-scroll md:h-[430px] h-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid overflow-y-scroll md:h-[430px] lg:h-max h-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10 gap-6">
           {filteredSkills.map((skill, index) => (
             <SkillCard key={index} skill={skill} index={index} />
           ))}

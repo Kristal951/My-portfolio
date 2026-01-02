@@ -1,114 +1,79 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { FaHeart, FaCalculator, FaTasks } from "react-icons/fa";
-// import { useNavigate } from "react-router-dom";
-import { MdArrowLeft, MdArrowRight } from "react-icons/md";
+import { FaCalculator, FaHeart, FaTasks } from "react-icons/fa";
+import { projects } from "../components";
 
 const Projects = () => {
-  // const navigate = useNavigate();
-  const carouselRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const projects = [
-    {
-      title: "Calcex Calculator",
-      description:
-        "A fullstack scientific calculator with history, memory, and theme support. And also with an online all-currency converter",
-      icon: <FaCalculator className="text-yellow-500 text-3xl" />,
-      path: "/projects/calcex",
-    },
-  ];
-
-  const scrollToIndex = (index) => {
-    const container = carouselRef.current;
-    const cardWidth = container.offsetWidth;
-    container.scrollTo({
-      left: index * cardWidth,
-      behavior: "smooth",
-    });
-  };
-
-  const nextSlide = () => {
-    const newIndex = Math.min(currentIndex + 1, projects.length - 1);
-    setCurrentIndex(newIndex);
-    scrollToIndex(newIndex);
-  };
-
-  const prevSlide = () => {
-    const newIndex = Math.max(currentIndex - 1, 0);
-    setCurrentIndex(newIndex);
-    scrollToIndex(newIndex);
-  };
 
   return (
-    <div className="w-full h-screen mx-auto relative overflow-hidden">
-      <motion.div
-        className="flex w-full flex-col h-max items-center justify-center pt-8"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-      >
-        <p className="text-sm font-medium uppercase">View my works</p>
-        <h2 className="text-2xl font-bold mt-2">My Projects</h2>
-      </motion.div>
+    <div className="w-full min-h-screen flex flex-col overflow-hidden items-center px-4 sm:px-8 lg:px-12 py-4">
+      <div className="text-center mb-14">
+        <h1 className="font-bold text-xl font-heading mb-2">
+          {"<My Projects />"}
+        </h1>
+        <p className="font-body text-gray-500">View my works below</p>
+      </div>
 
-      <div className="w-full h-full relative px-6 md:px-12 mt-10">
-        {projects.length > 1 && (
-          <div className="hidden md:flex absolute top-1/2 left-4 -translate-y-1/2 z-10">
-            <button
-              onClick={prevSlide}
-              disabled={currentIndex === 0}
-              className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full"
-            >
-              <MdArrowLeft fontSize={30} />
-            </button>
-          </div>
-        )}
+      <div className="flex flex-col w-full max-w-6xl items-center justify-center gap-20">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            className={`flex flex-col md:flex-row items-center gap-10 ${
+              index % 2 !== 0 ? "md:flex-row-reverse" : ""
+            }`}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
+            <div className="w-full md:w-3/5">
+              <div className="aspect-video rounded-2xl overflow-hidden bg-black shadow-lg">
+                {project.isVideo && project.media ? (
+                  <video
+                    src={project.media}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                    {project.icon}
+                  </div>
+                )}
+              </div>
+            </div>
 
-        {projects.length > 1 && (
-          <div className="hidden md:flex absolute top-1/2 right-4 -translate-y-1/2 z-10">
-            <button
-              onClick={nextSlide}
-              disabled={currentIndex === projects.length - 1}
-              className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full"
-            >
-              <MdArrowRight fontSize={30} />
-            </button>
-          </div>
-        )}
+            <div className="w-full md:w-1/2 text-center md:text-left">
+              <div className="flex gap-4 items-center justify-center md:justify-start mb-4">
+                {project.icon}
+                <h3 className="text-3xl font-heading lg:text-5xl font-bold tracking-tight mb-4">
+                  {project.title}
+                </h3>
+              </div>
+              <p className="text-base md:text-base lg:text-lg font-body mb-8 leading-relaxed">
+                {project.description}
+              </p>
 
-        <motion.div
-          ref={carouselRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragEnd={(e, info) => {
-            if (info.offset.x < -100 && currentIndex < projects.length - 1) {
-              nextSlide();
-            } else if (info.offset.x > 100 && currentIndex > 0) {
-              prevSlide();
-            } else {
-              scrollToIndex(currentIndex);
-            }
-          }}
-        >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="snap-center min-w-full md:min-w-[60%] h-[350px] bg-white border rounded-2xl shadow-md flex flex-col items-center justify-center text-center px-6"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              // onClick={() => navigate(project.path)}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index }}
-            >
-              {project.icon}
-              <h2 className="text-2xl font-bold mt-4">{project.title}</h2>
-              <p className="mt-2 text-sm font-medium">{project.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+              {project.isDownload ? (
+                <a
+                  href={project.link}
+                  download
+                  className="px-6 py-2 bg-yellow-500 text-white rounded-lg font-medium hover:bg-yellow-600 transition-all"
+                >
+                  Download APK
+                </a>
+              ) : (
+                <a
+                  href={project.link}
+                  className="px-6 py-2 border border-blue-500 text-blue-500 rounded-lg font-medium hover:bg-blue-500 hover:text-white transition-all"
+                >
+                  View Project
+                </a>
+              )}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
