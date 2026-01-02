@@ -4,9 +4,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["Montserrat", "sans-serif"],
-        body: ["Open Sans", "sans-serif"],
-        body2: ["Poppins", "sans-serif"],
+        geist: ["GeistRegular", "sans-serif"],
+        geistBold: ["GeistBold", "sans-serif"],
+        geistSemiBold: ["GeistSemiBold", "sans-serif"],
+        katanmruy: ["KatanmruyRegular", "sans-serif"],
+        katanmruyBold: ["KatanmruyBold", "sans-serif"],
+        KatanmruySemiBold: ["KatanmruySemiBold", "sans-serif"],
       },
     },
   },

@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import TopBar from './components/TopBar';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdCancel } from "react-icons/md";
-import './index.scss'
+import './index.css'
 
 const RootLayout = () => {
   const [showMenu, setShowMenu] = useState(false);

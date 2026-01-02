@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scrolling for the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styles */
+body {
+  padding: 0;
+  margin: 0;
+  background: #fff;
+}
+
+/* Hamburger container responsive */
+.harmburger-container {
+  display: none; /* default */
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    display: flex;
+  }
+}
+
+/* Scroll snapping container */
+.snap_container {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+}
+
+/* Scroll snapping sections */
+.snap_section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Fonts */
+@font-face {
+  font-family: "GeistBold";
+  src: url("./assets/fonts/Geist/Geist-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "GeistRegular";
+  src: url("./assets/fonts/Geist/Geist-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "GeistSemiBold";
+  src: url("./assets/fonts/Geist/Geist-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "KatunmruyBold";
+  src: url("./assets/fonts/KantumruyPro/KantumruyPro-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "KatunmruyRegular";
+  src: url("./assets/fonts/KantumruyPro/KantumruyPro-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "KatunmruySemiBold";
+  src: url("./assets/fonts/KantumruyPro/KantumruyPro-SemiBold.ttf") format("truetype");
+}

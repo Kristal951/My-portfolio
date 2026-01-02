@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import TopBar from "./components/TopBar";
 import MobileSidebar from "./components/MobileSIidebar";
-import "./index.scss";
+import "./index.css";
 
 const App = () => {
   return (
