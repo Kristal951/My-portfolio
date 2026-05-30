@@ -1,5 +1,10 @@
-import React, { useState, useCallback, forwardRef, useImperativeHandle } from 'react';
-import CustomToast from './CustomToast';
+import React, {
+  useState,
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
+import CustomToast from "./CustomToast";
 
 const ToastManager = forwardRef((props, ref) => {
   const [toasts, setToasts] = useState([]);

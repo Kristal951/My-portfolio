@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const MyJourney = () => {
-  return (
-    <div className='w-full h-screen bg-white'>
+  return <div className="w-full h-screen bg-white"></div>;
+};
 
-    </div>
-  )
-}
-
-export default MyJourney
+export default MyJourney;

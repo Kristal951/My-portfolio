@@ -1,7 +1,7 @@
 import React from "react";
-import './index.scss'
+import "./index.scss";
 
-const ThreeDCard = ({src, alt, label}) => {
+const ThreeDCard = ({ src, alt, label }) => {
   return (
     <div className="flex card">
       <div className="flip-card-inner flex items-center justify-center hover:shadow-md rounded-md cursor-pointer">

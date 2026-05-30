@@ -11,6 +11,15 @@ module.exports = {
         katanmruyBold: ["KatanmruyBold", "sans-serif"],
         KatanmruySemiBold: ["KatanmruySemiBold", "sans-serif"],
       },
+      colors:{
+        primary: "var(--primary)",
+        text: "var(--text)",
+        muted: "var(--muted)",
+        card: "var(--card)",
+        border: "var(--border)",
+        textInverse: "var(--text-inverse)",
+        bg: "var(--bg)",
+      }
     },
   },
   plugins: [],

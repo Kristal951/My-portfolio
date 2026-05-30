@@ -2,41 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth scrolling for the page */
+:root {
+  --bg: #ffffff;
+  --text: #18181b;
+  --primary: #000000;
+  --muted: #71717a;
+  --card: #f4f4f5;
+  --border: #e4e4e7;
+  --text-inverse: #ffffff;
+}
+
+.dark {
+  --bg: #0b0f19;
+  --text: #e2e8f0;
+  --primary: #3b82f6;
+  --muted: #94a3b8;
+  --card: #111827;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Body styles */
 body {
   padding: 0;
   margin: 0;
   background: #fff;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* Hamburger container responsive */
 .harmburger-container {
-  display: none; /* default */
+  display: none;
 
   @media (min-width: 360px) and (max-width: 600px) {
     display: flex;
   }
 }
 
-/* Scroll snapping container */
 .snap_container {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+    display: none;
   }
 }
 
-/* Scroll snapping sections */
 .snap_section {
   height: 100vh;
   scroll-snap-align: start;
@@ -44,7 +59,6 @@ body {
   flex-direction: column;
 }
 
-/* Custom Fonts */
 @font-face {
   font-family: "GeistBold";
   src: url("./assets/fonts/Geist/Geist-Bold.ttf") format("truetype");
@@ -59,13 +73,81 @@ body {
 }
 @font-face {
   font-family: "KatunmruyBold";
-  src: url("./assets/fonts/KantumruyPro/KantumruyPro-Bold.ttf") format("truetype");
+  src: url("./assets/fonts/KantumruyPro/KantumruyPro-Bold.ttf")
+    format("truetype");
 }
 @font-face {
   font-family: "KatunmruyRegular";
-  src: url("./assets/fonts/KantumruyPro/KantumruyPro-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/KantumruyPro/KantumruyPro-Regular.ttf")
+    format("truetype");
 }
 @font-face {
   font-family: "KatunmruySemiBold";
-  src: url("./assets/fonts/KantumruyPro/KantumruyPro-SemiBold.ttf") format("truetype");
+  src: url("./assets/fonts/KantumruyPro/KantumruyPro-SemiBold.ttf")
+    format("truetype");
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.bg-bg {
+  background: var(--bg);
+}
+
+.text-text {
+  color: var(--text);
+}
+
+.text-reverse {
+  color: var(--bg);
+}
+
+.bg-reverse {
+  background: var(--text);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.bg-card {
+  background: var(--card);
+}
+
+.bg-primary {
+  background: var(--primary);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.border-border {
+  border-color: var(--border);
+}
+
+.text-inverse {
+  color: var(--text-inverse);
+}
+
+.border-primary{
+  border-color: var(--primary);
+}
+
+/* .glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(46, 91, 255, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+} */

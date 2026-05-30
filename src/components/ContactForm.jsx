@@ -1,13 +1,13 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
-import ToastManager from './ToastManager'; 
+import React, { useState, useRef, useCallback } from "react";
+import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import ToastManager from "./ToastManager";
 
 const ContactForm = () => {
-  const [name, setName] = useState('');
-  const [tel, setTel] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const form = useRef();
 
@@ -19,10 +19,10 @@ const ContactForm = () => {
   }, []);
 
   const reset = () => {
-    setName('');
-    setTel('');
-    setEmail('');
-    setMessage('');
+    setName("");
+    setTel("");
+    setEmail("");
+    setMessage("");
   };
 
   const sendEmail = async (e) => {
@@ -30,47 +30,47 @@ const ContactForm = () => {
     setLoading(true);
 
     try {
+      if (name === "" || tel === "" || email === "" || message === "") {
+        setLoading(false);
+        return addToast("Please fill in all fields!", "info");
+      }
 
-        if (name === '' || tel === '' || email === '' || message === '') {
-            setLoading(false);
-            return addToast("Please fill in all fields!", "info"); 
-        }
-
-        await emailjs.sendForm(
-            process.env.REACT_APP_EMAILJS_SERVICE_KEY,
-            process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-            form.current,{
-                publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-            }
-        );
-      addToast("Email sent successfully!", "success"); 
+      await emailjs.sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_KEY,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        form.current,
+        {
+          publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
+        },
+      );
+      addToast("Email sent successfully!", "success");
       reset();
     } catch (error) {
       setLoading(false);
-      addToast("Failed to send email. Please try again.", "error"); 
+      addToast("Failed to send email. Please try again.", "error");
       console.log(error);
     }
   };
 
   const buttonVariant = {
     changeBg: {
-      backgroundColor: 'rgb(0,0,0)',
-      color: '#fff',
-      transition: { duration: 0.8, type: 'ease-in' },
+      backgroundColor: "rgb(0,0,0)",
+      color: "#fff",
+      transition: { duration: 0.8, type: "ease-in" },
     },
   };
 
   const inputVariant = {
     hidden: {
       opacity: 0,
-      x: 2 
+      x: 2,
     },
     visible: {
       opacity: 1,
       x: 0,
-      transition: { 
-        delay: 0.8, 
-        duration: 1.5 
+      transition: {
+        delay: 0.8,
+        duration: 1.5,
       },
     },
   };
@@ -82,8 +82,8 @@ const ContactForm = () => {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { 
-        delay: 0.3, 
+      transition: {
+        delay: 0.3,
         duration: 1.5,
       },
     },
@@ -94,18 +94,27 @@ const ContactForm = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { delay: 0.3, duration: 0.8, staggerChildren: 0.5, stiffness: 1 },
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+        staggerChildren: 0.5,
+        stiffness: 1,
+      },
     },
   };
 
   return (
-    <motion.div 
-      className="w-full h-full lg:h-full flex md:p-2 mt-4" 
+    <motion.div
+      className="w-full h-full lg:h-full flex md:p-2 mt-4"
       variants={containerVariant}
       initial="hidden"
-      whileInView="visible"
+      // whileInView="visible"
     >
-      <form className="flex w-full h-full flex-col gap-4 items-center" ref={form} onSubmit={sendEmail}>
+      <form
+        className="flex w-full h-full flex-col gap-4 items-center"
+        ref={form}
+        onSubmit={sendEmail}
+      >
         <motion.input
           name="user_name"
           type="text"
@@ -115,7 +124,7 @@ const ContactForm = () => {
           onChange={(e) => setName(e.target.value)}
           variants={inputVariant}
           initial="hidden"
-          whileInView="visible"
+          // whileInView="visible"
         />
         <motion.input
           name="user_tel"
@@ -126,7 +135,7 @@ const ContactForm = () => {
           onChange={(e) => setTel(e.target.value)}
           variants={inputVariant}
           initial="hidden"
-          whileInView="visible"
+          // whileInView="visible"
         />
         <motion.input
           name="user_email"
@@ -137,7 +146,7 @@ const ContactForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           variants={inputVariant}
           initial="hidden"
-          whileInView="visible"
+          // whileInView="visible"
         />
         <motion.textarea
           placeholder="Your message"
@@ -147,22 +156,22 @@ const ContactForm = () => {
           onChange={(e) => setMessage(e.target.value)}
           variants={inputVariant}
           initial="hidden"
-          whileInView="visible"
+          // whileInView="visible"
         />
         <motion.div
           className="flex flex-row w-4/5 items-center justify-center gap-[10%]"
           variants={btnContainer}
           initial="hidden"
-          whileInView="visible"
+          // whileInView="visible"
         >
           <motion.button
             type="submit"
             className={
               loading
-                ? 'cursor-not-allowed w-[45%] border-[1px] border-black p-2 rounded-md font-semibold btns'
-                : 'w-[45%] border-[1px] border-black p-2 rounded-md font-semibold btns'
+                ? "cursor-not-allowed w-[45%] border-[1px] border-black p-2 rounded-md font-semibold btns"
+                : "w-[45%] border-[1px] border-black p-2 rounded-md font-semibold btns"
             }
-            whileHover="changeBg"
+            // whileHover="changeBg"
             variants={buttonVariant}
             disabled={loading}
           >
@@ -171,10 +180,10 @@ const ContactForm = () => {
           <motion.button
             className={
               loading
-                ? 'cursor-not-allowed w-[45%] border-[1px] border-black p-2 rounded-md font-semibold btns'
-                : 'w-[45%] border-[1px] border-black p-2 rounded-md font-semibold btns'
+                ? "cursor-not-allowed w-[45%] border-[1px] border-black p-2 rounded-md font-semibold btns"
+                : "w-[45%] border-[1px] border-black p-2 rounded-md font-semibold btns"
             }
-            whileHover="changeBg"
+            // whileHover="changeBg"
             variants={buttonVariant}
             onClick={reset}
             disabled={loading}
