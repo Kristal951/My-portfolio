@@ -1,79 +1,76 @@
-import React, { useEffect, useState } from "react";
-import ContactForm from "../components/ContactForm";
-import { motion, useInView } from "framer-motion";
-import { Typewriter } from "react-simple-typewriter";
-import { useRef } from "react";
+import React from "react";
+import { FaTwitter, FaGithub, FaDiscord } from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
 
 const Contact = () => {
-  const [showTypewriter, setShowTypewriter] = useState(false);
-  const textRef = useRef(null);
-  const isInView = useInView(textRef, { once: false, margin: "-20% 0px" });
-
-  useEffect(() => {
-    if (isInView) {
-      setShowTypewriter(false);
-      setTimeout(() => setShowTypewriter(true), 100);
-    }
-  }, [isInView]);
-
-  const HeaderVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { delay: 0.2, duration: 0.8 },
-    },
-  };
-
   return (
-    <div className="w-full md:pt-[80px] py-4 md:pb-[80px] h-screen  flex flex-col">
-      <motion.div
-        className="flex w-full flex-col md:flex-row h-max items-center justify-center pt-8 md:p-0"
-        variants={HeaderVariants}
-        initial="hidden"
-        whileInView="visible"
-      >
-        <div className="flex-row flex gap-1" ref={textRef}>
-          <p className="font-bold text-xl text-black">
-            {showTypewriter && (
-              <Typewriter
-                words={["<Contact Me />"]}
-                loop={1}
-                typeSpeed={50}
-                deleteSpeed={0}
-                delaySpeed={1000}
-              />
-            )}
-          </p>
-        </div>
-      </motion.div>
+    <section className="w-full min-h-screen flex items-center justify-center px-6 py-24 bg-[var(--bg)] border-t border-[var(--border)]">
+      <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-10 md:p-16 flex flex-col items-center justify-center text-center max-w-3xl w-full shadow-sm">
+        {/* Header Text Wrapper */}
+        <div className="w-full flex flex-col gap-4">
+          <h1 className="w-full text-[var(--text)] tracking-tighter text-4xl md:text-5xl font-black">
+            Wanna talk? <span className="text-[var(--muted)]">Contact Me.</span>
+          </h1>
 
-      <div className="flex w-full h-full md:flex-row items-center flex-col md:pt-[150px] p-2 md:p-0">
-        <div
-          className="flex md:w-[50%] w-full lg:h-[80%] h-[50%] items-center justify-start"
-          ref={textRef}
-        >
-          <p className="text-gray-700 text-center text-[15px] sm:text-[16px] max-w-2xl">
-            {showTypewriter && (
-              <Typewriter
-                words={[
-                  "I'm always excited to connect with fellow creatives, developers, and forward-thinking individuals. Whether you're looking to collaborate on a project, discuss new ideas, or simply want to say hello, I’d love to hear from you. I’m passionate about building meaningful digital experiences and enjoy working on projects that challenge me to grow. Don’t hesitate to reach out — I’m always open to opportunities, feedback, or a good conversation. Let’s build something amazing together.",
-                ]}
-                loop={1}
-                cursor
-                typeSpeed={30}
-                deleteSpeed={0}
-                delaySpeed={1000}
-              />
-            )}
+          <p className="text-base md:text-lg text-[var(--muted)] max-w-xl mx-auto leading-relaxed">
+            Whether you have a specific project in mind or just want to chat
+            about potential collaborations, I'm always open to new engineering
+            challenges.
           </p>
         </div>
 
-        <div className="flex w-full lg:w-[50%] h-full flex-col gap-2 items-center">
-          <ContactForm />
+        {/* Action Button Segment */}
+        <div className="w-full py-8 flex items-center justify-center">
+          <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--text)] border border-transparent px-8 py-3.5 text-lg font-bold text-[var(--bg)] hover:bg-transparent hover:text-[var(--text)] hover:border-[var(--text)] transition-all duration-300 ease-out cursor-pointer shadow-sm">
+            <span>Start A Conversation</span>
+          </button>
+        </div>
+
+        <div className="flex flex-row gap-4 mt-4 justify-center items-center">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 p-3 flex items-center justify-center text-[var(--muted)] hover:text-[var(--text)] border border-[var(--border)] hover:border-[var(--text)] rounded-xl transition-all duration-200 bg-[var(--bg)] cursor-pointer"
+          >
+            <svg
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full h-full fill-current"
+            >
+              <title>X</title>
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+
+          <a
+            href="https://github.com/Kristal951"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 p-3 flex items-center justify-center text-[var(--muted)] hover:text-[var(--text)] border border-[var(--border)] hover:border-[var(--text)] rounded-xl transition-all duration-200 bg-[var(--bg)] cursor-pointer"
+          >
+            <FaGithub className="w-full h-full" />
+          </a>
+
+          <a
+            href="mailto:KristalDev001@gmail.com"
+            className="w-12 h-12 p-3 flex items-center justify-center text-[var(--muted)] hover:text-[var(--text)] border border-[var(--border)] hover:border-[var(--text)] rounded-xl transition-all duration-200 bg-[var(--bg)] cursor-pointer"
+          >
+            <IoMail className="w-full h-full" />
+          </a>
+
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 p-3 flex items-center justify-center text-[var(--muted)] hover:text-[var(--text)] border border-[var(--border)] hover:border-[var(--text)] rounded-xl transition-all duration-200 bg-[var(--bg)] cursor-pointer"
+          >
+            <FaDiscord className="w-full h-full" />
+          </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

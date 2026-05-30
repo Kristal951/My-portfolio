@@ -1,12 +1,8 @@
 import React from "react";
 import Pic from "../assets/images/EditedPic.png";
 import { motion } from "framer-motion";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaGithubSquare } from "react-icons/fa";
-import { FaDiscord } from "react-icons/fa";
-import { IoMail } from "react-icons/io5";
 import { Typewriter } from "react-simple-typewriter";
+import { Download } from "lucide-react";
 
 const Home = () => {
   const pictureVariants = {
@@ -25,7 +21,7 @@ const Home = () => {
 
   const buttonVariant = {
     changeBg: {
-      backgroundColor: "black",
+      backgroundColor: "gray",
       color: "white",
       transition: {
         duration: 0.8,
@@ -61,98 +57,50 @@ const Home = () => {
       />
 
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-6 w-full h-full details-container">
-        <motion.div
-          className="flex w-[250px] h-[250px] md:w-[300px] md:h-[300px] items-center justify-center"
-          initial="hidden"
-          whileInView="visible"
-          variants={pictureVariants}
-        >
+        <div className="flex w-[250px] h-[250px] md:w-[300px] md:h-[300px] items-center justify-center">
           <img
             src={Pic}
             alt="developer Pic"
             className="object-cover w-full h-full rounded-full border-[2px] border-black"
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="flex flex-col items-center justify-center gap-4"
+        <div
+          className="flex flex-col items-center justify-center gap-8"
           initial="hidden"
-          whileInView="visible"
+          // whileInView="visible"
           variants={textVariants}
         >
-          <div className="text-center">
-            <p className="text-base font-medium">
-              <Typewriter
-                words={["Hello. I'm"]}
-                loop={1}
-                typeSpeed={50}
-                deleteSpeed={0}
-                delaySpeed={1000}
-              />
-            </p>
-            <h2 className="text-3xl font-bold ">
-              <Typewriter
-                words={["Bethel Wisdom"]}
-                loop={1}
-                typeSpeed={50}
-                deleteSpeed={0}
-                delaySpeed={1000}
-              />
-            </h2>
-            <h4 className="text-xl font-semibold font-body2">
-              <Typewriter
-                words={["A Fullstack Web Developer And Mobile App Developer"]}
-                loop={1}
-                typeSpeed={50}
-                deleteSpeed={0}
-                delaySpeed={1000}
-              />
+          <div className="flex flex-col text-center gap-2">
+            <div className="">
+              <p className="text-base">Hello. i'm</p>
+              <h2 className="text-3xl font-bold">Bethel Wisdom</h2>
+            </div>
+
+            <h4 className="text-xl max-w-lg text-muted">
+              Fullstack Web & Mobile App Developer focused on building scalable,
+              high-performance digital products with modern technologies.
             </h4>
           </div>
 
-          <div className="flex flex-row items-center justify-center gap-3">
-            <motion.button
-              className="px-5 py-3 text-xl font-semibold border-[2px] border-black rounded-3xl btn"
-              whileHover="changeBg"
+          <div className="flex flex-col md:flex-row lg:flex-row items-center justify-center gap-3">
+            <button
+              className="px-5 flex items-center gap-2 py-3 hover:scale-105 text-xl border-[2px] text-white bg-black rounded-lg btn"
+              // whileHover="changeBg"
               variants={buttonVariant}
             >
-              Download CV
-            </motion.button>
+              <Download />
+              <p>Download CV</p>
+            </button>
 
-            <motion.a
+            <a
               href="#Contact"
-              className="px-5 py-3 text-xl font-semibold border-[2px] border-black rounded-3xl btn"
-              whileHover="changeBg"
-              variants={buttonVariant}
+              className="px-5 py-3 text-xl border-[2px] border-border hover:bg-black/5 rounded-lg btn"
             >
               Contact Me
-            </motion.a>
-          </div>
-
-          <div className="p-1 flex flex-row gap-2">
-            <a className="p-1 cursor-pointer hover:shadow-lg rounded-md shadow-black">
-              <FaTwitter className="w-[40px] h-[40px]" />
-            </a>
-            <a
-              href="https://github.com/Kristal951"
-              className="p-1 cursor-pointer hover:shadow-lg rounded-md shadow-black"
-            >
-              <FaGithubSquare className="w-[40px] h-[40px]" />
-            </a>
-            <a
-              href="mailto:KristalDev001@gmail.com"
-              className="p-1 cursor-pointer hover:shadow-lg rounded-md shadow-black"
-            >
-              <IoMail className="w-[40px] h-[40px]" />
-            </a>
-            <a
-              href=""
-              className="p-1 cursor-pointer hover:shadow-lg rounded-md shadow-black"
-            >
-              <FaDiscord className="w-[40px] h-[40px]" />
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

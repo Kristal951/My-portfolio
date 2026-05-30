@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-const CustomToast = ({ message, type = 'info', duration = 3000, onClose }) => {
+const CustomToast = ({ message, type = "info", duration = 3000, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      onClose(); 
+      onClose();
     }, duration);
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, [duration, onClose]);
 
   const typeStyles = {
-    success: 'bg-green-500',
-    error: 'bg-red-500',
-    info: 'bg-blue-500',
-    warning: 'bg-yellow-500',
+    success: "bg-green-500",
+    error: "bg-red-500",
+    info: "bg-blue-500",
+    warning: "bg-yellow-500",
   };
 
   return (

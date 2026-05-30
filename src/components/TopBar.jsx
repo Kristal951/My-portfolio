@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Navlinks } from "./index.js";
 import { motion } from "framer-motion";
+import Pic from "../assets/images/Black_logo.png";
 
-const TopBar = () => {
-  const [activeLink, setActiveLink] = useState("Home");
-
-  // Framer Motion variants for link fade-in
+const TopBar = ({ setActiveLink, activeLink }) => {
   const linkVariants = {
     hidden: { opacity: 0 },
     visible: (i) => ({
@@ -16,14 +14,19 @@ const TopBar = () => {
 
   return (
     <header className="w-full hidden md:flex h-[70px] lg:px-8 z-50 bg-white fixed items-center justify-between">
-      {/* Logo */}
       <div className="flex items-center px-4">
-        <a href="#home" className="text-2xl font-geistBold ml-10">
-          Kristal Dev
+        <a
+          href="#home"
+          className="block w-[80px] h-[40px] transition-opacity hover:opacity-80"
+        >
+          <img
+            src={Pic}
+            alt="Kristal Dev Logo"
+            className="w-full h-full object-contain object-left"
+          />
         </a>
       </div>
 
-      {/* Navigation Links */}
       <nav className="flex items-center gap-4 px-4 mr-8">
         {Navlinks.map((navlink, i) => (
           <motion.div
@@ -31,7 +34,7 @@ const TopBar = () => {
             className="flex items-center border-r-2 last:border-r-0 pr-3"
             custom={i}
             initial="hidden"
-            whileInView="visible"
+            // whileInView="visible"
             viewport={{ once: true }}
             variants={linkVariants}
           >
