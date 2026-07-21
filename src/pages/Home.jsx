@@ -1,50 +1,8 @@
 import React from "react";
 import Pic from "../assets/images/EditedPic.png";
-import { motion } from "framer-motion";
-import { Typewriter } from "react-simple-typewriter";
 import { Download } from "lucide-react";
 
 const Home = () => {
-  const pictureVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.8,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-      },
-    },
-  };
-
-  const buttonVariant = {
-    changeBg: {
-      backgroundColor: "gray",
-      color: "white",
-      transition: {
-        duration: 0.8,
-        type: "ease-in",
-      },
-    },
-  };
-
-  const textVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        delay: 0.4,
-      },
-    },
-  };
-
   return (
     <div className="relative flex flex-col w-full h-full overflow-hidden">
       <div
@@ -69,7 +27,7 @@ const Home = () => {
           className="flex flex-col items-center justify-center gap-8"
           initial="hidden"
           // whileInView="visible"
-          variants={textVariants}
+          // variants={textVariants}
         >
           <div className="flex flex-col text-center gap-2">
             <div className="">
@@ -87,7 +45,7 @@ const Home = () => {
             <button
               className="px-5 flex items-center gap-2 py-3 hover:scale-105 text-xl border-[2px] text-white bg-black rounded-lg btn"
               // whileHover="changeBg"
-              variants={buttonVariant}
+              // variants={buttonVariant}
             >
               <Download />
               <p>Download CV</p>

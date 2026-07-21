@@ -27,11 +27,12 @@ import { BsPersonCircle } from "react-icons/bs";
 import { FiFolder } from "react-icons/fi";
 import { BiCodeAlt } from "react-icons/bi";
 import { MdContactMail } from "react-icons/md";
-import { FaCalculator, FaHeart, FaTasks } from "react-icons/fa";
+import { FaCalculator, FaHeart, FaTasks, FaUtensils } from "react-icons/fa";
 
 import CalcexSR from "../assets/Videos/Calcex_screen_record.mp4";
 import TodoAppSR from "../assets/Videos/TodoMobile_screen_record.mp4";
 import LKD_SCRD from "../assets/Videos/LKD_SCRD.mp4";
+import MIMI_SPICY_OFFALS from "../assets/Videos/Mimi_spicy_offals.webm";
 
 export const Navlinks = [
   {
@@ -419,6 +420,60 @@ export const projects = [
         name: "MongoDB",
         badge:
           "https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white",
+      },
+    ],
+  },
+  {
+    title: "Mimi Spicy Offals",
+    description:
+      "A modern restaurant website designed for Mimi Spicy Offals, showcasing delicious Nigerian meals and signature spicy delicacies. The platform provides an engaging browsing experience with an interactive menu, stunning food gallery, seamless WhatsApp ordering, and a responsive design optimized for speed, SEO, and all devices.",
+
+    icon: <FaUtensils className="text-orange-500 text-4xl sm:text-5xl" />,
+    media: MIMI_SPICY_OFFALS,
+    isVideo: true,
+    link: "https://mimi-spicy-offals.vercel.app",
+    isDownload: false,
+    status: "live",
+
+    features: [
+      "Beautiful animated landing page with engaging hero section",
+      "Interactive menu with categorized meals and pricing",
+      "Detailed meal pages with descriptions and high-quality images",
+      "One-click WhatsApp ordering with pre-filled order messages",
+      "Food gallery showcasing signature dishes",
+      "About page highlighting the brand's story and values",
+      "Contact page with business information and location",
+      "Frequently Asked Questions (FAQ) section",
+      "Fully responsive design across mobile, tablet, and desktop",
+      "SEO-optimized pages for better Google visibility",
+      "Fast-loading, performance-focused user experience",
+    ],
+
+    stack: [
+      {
+        name: "Next.js",
+        badge:
+          "https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white",
+      },
+      {
+        name: "React",
+        badge:
+          "https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB",
+      },
+      {
+        name: "TypeScript",
+        badge:
+          "https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white",
+      },
+      {
+        name: "Tailwind CSS",
+        badge:
+          "https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white",
+      },
+      {
+        name: "Framer Motion",
+        badge:
+          "https://img.shields.io/badge/Framer_Motion-0055FF?style=flat&logo=framer&logoColor=white",
       },
     ],
   },

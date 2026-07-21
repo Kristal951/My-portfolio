@@ -1,23 +1,17 @@
-import React, { useState } from "react";
-import { Navlinks } from "./index.js";
+import React from "react";
 import { motion } from "framer-motion";
+import { Navlinks } from "./index.js";
 import Pic from "../assets/images/Black_logo.png";
 
 const TopBar = ({ setActiveLink, activeLink }) => {
-  const linkVariants = {
-    hidden: { opacity: 0 },
-    visible: (i) => ({
-      opacity: 1,
-      transition: { delay: i * 0.15, duration: 0.8 },
-    }),
-  };
-
   return (
-    <header className="w-full hidden md:flex h-[70px] lg:px-8 z-50 bg-white fixed items-center justify-between">
+    <header className="fixed top-0 left-0 w-full hidden md:flex h-[70px] lg:px-8 z-50 bg-background/80 backdrop-blur-md items-center justify-between transition-all">
       <div className="flex items-center px-4">
         <a
           href="#home"
-          className="block w-[80px] h-[40px] transition-opacity hover:opacity-80"
+          onClick={() => setActiveLink("home")}
+          className="block w-[80px] h-[40px] transition-transform hover:scale-105 active:scale-95"
+          aria-label="Home"
         >
           <img
             src={Pic}
@@ -27,30 +21,32 @@ const TopBar = ({ setActiveLink, activeLink }) => {
         </a>
       </div>
 
-      <nav className="flex items-center gap-4 px-4 mr-8">
-        {Navlinks.map((navlink, i) => (
-          <motion.div
-            key={navlink.id}
-            className="flex items-center border-r-2 last:border-r-0 pr-3"
-            custom={i}
-            initial="hidden"
-            // whileInView="visible"
-            viewport={{ once: true }}
-            variants={linkVariants}
-          >
+      <nav className="flex items-center gap-1 px-4 mr-4">
+        {Navlinks.map((navlink) => {
+          const isActive = activeLink === navlink.path;
+
+          return (
             <a
+              key={navlink.id}
               href={`#${navlink.path}`}
               onClick={() => setActiveLink(navlink.path)}
-              className={`text-[18px] transition-all duration-200 ${
-                activeLink === navlink.path
-                  ? "text-black font-geistBold"
-                  : "text-gray-400 font-katanmruy hover:text-black"
+              className={`relative px-4 py-2 text-sm md:text-base font-medium transition-colors rounded-full ${
+                isActive
+                  ? "text-foreground font-semibold"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
+              {isActive && (
+                <motion.span
+                  layoutId="activeTopBarIndicator"
+                  className="absolute inset-0 bg-muted rounded-full -z-10"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
               {navlink.label}
             </a>
-          </motion.div>
-        ))}
+          );
+        })}
       </nav>
     </header>
   );
