@@ -1,15 +1,14 @@
 import React from "react";
-import { FaTwitter, FaGithub, FaDiscord } from "react-icons/fa";
+import {  FaGithub, FaDiscord } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 
 const Contact = () => {
   return (
     <section className="w-full min-h-screen flex items-center justify-center px-6 py-24 bg-[var(--bg)] border-t border-[var(--border)]">
       <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-10 md:p-16 flex flex-col items-center justify-center text-center max-w-3xl w-full shadow-sm">
-        {/* Header Text Wrapper */}
         <div className="w-full flex flex-col gap-4">
           <h1 className="w-full text-[var(--text)] tracking-tighter text-4xl md:text-5xl font-black">
-            Wanna talk? <span className="text-[var(--muted)]">Contact Me.</span>
+            <span className="text-muted">Wanna talk?</span> Contact Me.
           </h1>
 
           <p className="text-base md:text-lg text-[var(--muted)] max-w-xl mx-auto leading-relaxed">
@@ -19,7 +18,6 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Action Button Segment */}
         <div className="w-full py-8 flex items-center justify-center">
           <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--text)] border border-transparent px-8 py-3.5 text-lg font-bold text-[var(--bg)] hover:bg-transparent hover:text-[var(--text)] hover:border-[var(--text)] transition-all duration-300 ease-out cursor-pointer shadow-sm">
             <span>Start A Conversation</span>
@@ -28,7 +26,7 @@ const Contact = () => {
 
         <div className="flex flex-row gap-4 mt-4 justify-center items-center">
           <a
-            href="#"
+            href="https://twitter.com/KristalDev001"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 p-3 flex items-center justify-center text-[var(--muted)] hover:text-[var(--text)] border border-[var(--border)] hover:border-[var(--text)] rounded-xl transition-all duration-200 bg-[var(--bg)] cursor-pointer"
@@ -61,7 +59,7 @@ const Contact = () => {
           </a>
 
           <a
-            href="#"
+            href="https://"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 p-3 flex items-center justify-center text-[var(--muted)] hover:text-[var(--text)] border border-[var(--border)] hover:border-[var(--text)] rounded-xl transition-all duration-200 bg-[var(--bg)] cursor-pointer"
