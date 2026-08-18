@@ -4,8 +4,8 @@ import { IoMail } from "react-icons/io5";
 
 const Contact = () => {
   return (
-    <section className="w-full min-h-screen flex items-center justify-center px-6 py-24 bg-[var(--bg)] border-t border-[var(--border)]">
-      <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-10 md:p-16 flex flex-col items-center justify-center text-center max-w-3xl w-full shadow-sm">
+    <section className="w-full min-h-screen flex items-center justify-center md:px-6 px-4 py-24 bg-[var(--bg)] border-t border-[var(--border)]">
+      <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl py-8 px-4 md:p-16 flex flex-col items-center justify-center text-center max-w-3xl w-full shadow-sm">
         <div className="w-full flex flex-col gap-4">
           <h1 className="w-full text-[var(--text)] tracking-tighter text-4xl md:text-5xl font-black">
             <span className="text-muted">Wanna talk?</span> Contact Me.

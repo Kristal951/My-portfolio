@@ -16,6 +16,7 @@ import Express_Image from "../assets/images/Express.png";
 import Figma_Image from "../assets/images/Figma.png";
 import GitHub_Image from "../assets/images/Github.png";
 import Git_Image from "../assets/images/Git.png";
+import Sql_Image from "../assets/images/Sql.png";
 import NextJs_Image from "../assets/images/Next_js_logo.png";
 import TypeScript_Image from "../assets/images/typescript_logo.svg";
 import SocketIo_Image from "../assets/images/socket_io_logo.svg";
@@ -235,6 +236,13 @@ export const AllSkill = [
     barWidth: 80,
     category: "tools",
     image: Figma_Image,
+  },
+  {
+    id: "sql",
+    label: "Sql",
+    barWidth: 80,
+    category: "database",
+    image: Sql_Image,
   },
 ];
 
