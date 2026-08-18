@@ -4,8 +4,8 @@ import ProjectCard from "../components/ProjectCard";
 
 const Projects = () => {
   return (
-    <section className="w-full h-full py-10 bg-background">
-      <div className="mb-8 px-6 space-y-2">
+    <section className="w-full h-full md:py-10 py-6 bg-background">
+      <div className="mb-10 px-6 space-y-2">
         <h1 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
           <span className="text-muted font-light">Featured</span> Projects
         </h1>
