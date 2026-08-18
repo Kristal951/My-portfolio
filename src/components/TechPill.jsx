@@ -10,7 +10,7 @@ const TechPill = ({ name, image }) => {
           className="w-3.5 h-3.5 object-contain transition-opacity group-hover:opacity-100" 
         />
       )}
-      <span>{name}</span>
+      <span className='text-sm md:text-base'>{name}</span>
     </div>
   );
 };
