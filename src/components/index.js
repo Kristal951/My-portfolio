@@ -96,7 +96,6 @@ export const links = [
 ];
 
 export const AllSkill = [
-  // Frontend
   {
     id: "html",
     label: "HTML5",
@@ -125,13 +124,13 @@ export const AllSkill = [
     category: "frontend",
     image: TypeScript_Image,
   },
-  {
-    id: "scss",
-    label: "SCSS",
-    barWidth: 80,
-    category: "frontend",
-    image: Scss_Image,
-  },
+  // {
+  //   id: "scss",
+  //   label: "SCSS",
+  //   barWidth: 80,
+  //   category: "frontend",
+  //   image: Scss_Image,
+  // },
   {
     id: "react",
     label: "React",
@@ -230,13 +229,13 @@ export const AllSkill = [
     category: "tools",
     image: GitHub_Image,
   },
-  {
-    id: "figma",
-    label: "Figma",
-    barWidth: 80,
-    category: "tools",
-    image: Figma_Image,
-  },
+  // {
+  //   id: "figma",
+  //   label: "Figma",
+  //   barWidth: 80,
+  //   category: "tools",
+  //   image: Figma_Image,
+  // },
   {
     id: "sql",
     label: "Sql",

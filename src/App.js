@@ -31,7 +31,7 @@ const App = () => {
 
       <TopBar setActiveLink={setActiveLink} activeLink={activeLink} />
 
-      <main className="h-full mt-[70px] overflow-y-scroll scrollbar-hide">
+      <main className="h-full mt-[60px] overflow-y-scroll scrollbar-hide">
         <section id="Home" className="h-screen overflow-x-hidden">
           <Home />
         </section>
