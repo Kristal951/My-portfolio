@@ -18,10 +18,8 @@ const App = () => {
       setActiveLink(location);
     };
 
-    // Listen to hash changes
     window.addEventListener("hashchange", handleHashChange);
 
-    // Initialize on first load
     handleHashChange();
 
     return () => window.removeEventListener("hashchange", handleHashChange);
@@ -42,7 +40,7 @@ const App = () => {
           <Projects />
         </section>
 
-        <section id="Arsenal" className="h-[80vh] overflow-x-hidden">
+        <section id="Arsenal" className="md:h-[80vh] h-screen overflow-x-hidden">
           <Arsenal />
         </section>
 

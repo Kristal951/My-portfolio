@@ -41,23 +41,22 @@ const MobileSidebar = () => {
   return (
     <div className="md:hidden z-[100] w-full">
       <div
+       onClick={() => setIsOpen(!isOpen)}
         className={`fixed top-4 left-4 z-[100] transition-transform ${
           isOpen ? "translate-x-72" : "translate-x-0"
         }`}
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 rounded-full bg-white shadow-md backdrop-blur-sm"
+          className={`p-2 ${isOpen ? "rounded-full shadow-md backdrop-blur-sm" : ""} bg-white`}
         >
           {isOpen ? <HiOutlineX size={24} /> : <HiOutlineMenu size={24} />}
         </button>
       </div>
 
-      {/* Sidebar with Overlay */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black bg-opacity-50 z-[40]"
               initial={{ opacity: 0 }}
@@ -65,10 +64,9 @@ const MobileSidebar = () => {
               exit={{ opacity: 0 }}
             />
 
-            {/* Sidebar */}
             <motion.div
               ref={sidebarRef}
-              className="fixed top-0 left-0 w-[80%] sm:w-[70%] h-full bg-white/70 backdrop-blur-md shadow-lg p-6 pt-24 flex flex-col gap-6 z-[80] rounded-tr-2xl rounded-br-2xl"
+              className="fixed top-0 left-0 w-[80%] sm:w-[70%] h-full bg-white backdrop-blur-md shadow-lg p-6 pt-24 flex flex-col gap-6 z-[80] rounded-tr-2xl rounded-br-2xl"
               variants={sidebarVariants}
               initial="hidden"
               animate="visible"

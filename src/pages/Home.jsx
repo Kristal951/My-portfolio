@@ -14,7 +14,7 @@ const Home = () => {
         bg-white/10 backdrop-blur-md border border-white/20 opacity-10 shadow-[0_0_80px_rgba(0,0,0,0.7)] animate-pulse z-0"
       />
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-6 w-full h-full details-container">
+      <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 w-full h-full details-container mt-6">
         <div className="flex w-[250px] h-[250px] md:w-[300px] md:h-[300px] items-center justify-center">
           <img
             src={Pic}
@@ -29,13 +29,13 @@ const Home = () => {
           // whileInView="visible"
           // variants={textVariants}
         >
-          <div className="flex flex-col text-center gap-2">
+          <div className="flex flex-col text-center gap-2 px-4">
             <div className="">
               <p className="text-base">Hello. i'm</p>
               <h2 className="text-3xl font-bold">Bethel Wisdom</h2>
             </div>
 
-            <h4 className="text-xl max-w-lg text-muted">
+            <h4 className="md:text-xl text-lg max-w-lg text-muted">
               Fullstack Web & Mobile App Developer focused on building scalable,
               high-performance digital products with modern technologies.
             </h4>
