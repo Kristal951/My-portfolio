@@ -5,7 +5,7 @@ import TechPill from "../components/TechPill";
 const Arsenal = () => {
   return (
     <section
-      className="w-full h-full flex flex-col items-center justify-center md:px-6 px-3 py-6 md:py-20 gap-5 bg-card"
+      className="w-full h-full flex flex-col items-center justify-center md:px-6 px-3 py-0 md:py-20 gap-5 bg-card"
     >
       <div className="flex flex-col items-center justify-center text-center max-w-2xl">
         <h1 className="text-4xl md:text-5xl font-black text-text tracking-tighter md:mb-4 mb-2">
@@ -17,7 +17,7 @@ const Arsenal = () => {
         </p>
       </div>
 
-      <div className="w-full max-w-3xl md:my-10 flex flex-wrap md:gap-6 gap-4 justify-center items-center">
+      <div className="w-full max-w-3xl md:my-10 flex flex-wrap gap-6 justify-center items-center">
         {AllSkill && AllSkill.length > 0 ? (
           AllSkill.map((skill, index) => (
             <TechPill 
