@@ -78,7 +78,7 @@ const ProjectCard= ({ project }) => {
             {project.title}
           </h3>
 
-          <p className="text-muted text-xs sm:text-sm leading-relaxed ">
+          <p className="text-muted text-sm leading-relaxed line-clamp-6">
             {project.description}
           </p>
         </div>

@@ -39,7 +39,7 @@ const TopBar = ({ setActiveLink, activeLink }) => {
               {isActive && (
                 <motion.span
                   layoutId="activeTopBarIndicator"
-                  className="absolute inset-0 bg-muted rounded-full -z-10"
+                  className="absolute inset-0 bg-[#dddde2] rounded-full -z-10"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
