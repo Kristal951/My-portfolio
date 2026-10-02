@@ -6,7 +6,7 @@ import { PiSuitcaseSimpleBold } from "react-icons/pi";
 
 const About = () => {
   return (
-    <section className="relative w-full min-h-screen bg-card font-katanmruy px-4 sm:px-6 lg:px-12 py-16 md:py-24 flex items-center justify-center overflow-hidden">
+    <section className="relative w-full overflow-y-hidden h-full bg-card font-katanmruy px-4 sm:px-6 lg:px-12 py-16 md:py-24 flex items-center justify-center overflow-hidden">
       <div className="relative w-full max-w-3xl flex flex-col items-center text-center">
         <h1 className="text-4xl md:text-5xl font-black text-text tracking-tighter md:mb-4 mb-2">
           <span className="text-muted">About</span> Me

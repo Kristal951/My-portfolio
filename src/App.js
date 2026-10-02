@@ -35,7 +35,7 @@ const App = () => {
           <Home />
         </section>
 
-        <section id="About" className="h-screen overflow-x-hidden">
+        <section id="About" className="h-[120vh] md:h-full overflow-x-hidden">
           <About />
         </section>
 
