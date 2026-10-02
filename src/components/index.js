@@ -26,13 +26,15 @@ import { AiFillHome } from "react-icons/ai";
 import { BsPersonCircle } from "react-icons/bs";
 import { FiFolder } from "react-icons/fi";
 import { BiCodeAlt } from "react-icons/bi";
-import { MdContactMail } from "react-icons/md";
+import { MdContactMail, MdPictureInPicture } from "react-icons/md";
 import { FaCalculator, FaHeart, FaTasks, FaUtensils } from "react-icons/fa";
 
 import CalcexSR from "../assets/Videos/Calcex_screen_record.mp4";
 import TodoAppSR from "../assets/Videos/TodoMobile_screen_record.mp4";
 import LKD_SCRD from "../assets/Videos/LKD_SCRD.mp4";
 import MIMI_SPICY_OFFALS from "../assets/Videos/Mimi_spicy_offals.webm";
+import PICSKRYPT from "../assets/images/Picskrypt_ss.png";
+import SKILLCIRQLE from "../assets/images/SkillCirqle.png";
 
 export const Navlinks = [
   {
@@ -95,7 +97,6 @@ export const links = [
 ];
 
 export const AllSkill = [
-  // Frontend
   {
     id: "html",
     label: "HTML5",
@@ -371,35 +372,41 @@ export const projects = [
   {
     title: "SkillCirqle",
     description:
-      "A social learning and networking platform that connects users based on skills they can teach and want to learn, enabling them be able to perform skills exchanges, and grow their knowledge. featuring real-time chat and intelligent matching.",
+      "A peer-to-peer skill exchange platform where people propose skill swaps or one-way learning, get matched through accepted proposals, and collaborate in shared workspaces with scheduled sessions, resources, milestones, real-time chat and video calls. Currently in pre-launch with a live waitlist.",
 
-    icon: <FaHeart className="text-pink-500 text-4xl sm:text-5xl" />,
+    icon: <FaHeart className="text-[#6c3fc5] text-4xl sm:text-5xl" />,
 
-    media: null,
+    media: SKILLCIRQLE,
     isVideo: false,
-    link: "#",
+    link: "https://skillcirqle.com",
     isDownload: false,
     status: "development",
 
     features: [
-      "AI-assisted compatibility and interest-based matching",
-      "Skill and interest-driven user discovery system",
-      "Real-time messaging with Socket.IO",
-      "Typing indicators and live message updates",
-      "Online and offline user presence tracking",
-      "Secure authentication and user session handling",
-      "Detailed user profiles with skills and preferences",
-      "Smart recommendation and matching logic",
-      "Scalable Node.js and Express backend architecture",
-      "MongoDB-based real-time data handling",
-      "Mobile-first and responsive social experience",
+      "Skill swap and one-way learning proposals with accept, decline and negotiate flow",
+      "Collaborative workspaces created automatically when a proposal is accepted",
+      "Session scheduling with timezone-aware booking and 24h, 1h and 10-minute reminders",
+      "Self-hosted Jitsi video and audio calls with dominant-speaker highlighting",
+      "Real-time chat with encrypted messages, delivery and read receipts, and unread badges",
+      "Online presence tracking across devices and tabs",
+      "Shared resources and notes with a collaborative Tiptap and Yjs editor",
+      "Workspace milestones and activity feed that sync live between members",
+      "In-app and push notifications with Socket.IO and OneSignal",
+      "Secure authentication with email verification, MFA, rate limiting and session revocation",
+      "Admin dashboard with role-based access and audit log",
+      "Performance-tuned, with PageSpeed scores of 87 on mobile and 96 on desktop",
     ],
 
     stack: [
       {
-        name: "React Native",
+        name: "Next.js",
         badge:
-          "https://img.shields.io/badge/React_Native-20232A?style=flat&logo=react&logoColor=61DAFB",
+          "https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white",
+      },
+      {
+        name: "TypeScript",
+        badge:
+          "https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white",
       },
       {
         name: "Node.js",
@@ -417,9 +424,28 @@ export const projects = [
           "https://img.shields.io/badge/Socket.IO-010101?style=flat&logo=socketdotio&logoColor=white",
       },
       {
-        name: "MongoDB",
+        name: "Supabase",
         badge:
-          "https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white",
+          "https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white",
+      },
+      {
+        name: "Redis",
+        badge:
+          "https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white",
+      },
+      {
+        name: "TanStack Query",
+        badge:
+          "https://img.shields.io/badge/TanStack_Query-FF4154?style=flat&logo=reactquery&logoColor=white",
+      },
+      {
+        name: "Zustand",
+        badge: "https://img.shields.io/badge/Zustand-433E38?style=flat",
+      },
+      {
+        name: "Jitsi Meet",
+        badge:
+          "https://img.shields.io/badge/Jitsi_Meet-97979A?style=flat&logo=jitsi&logoColor=white",
       },
     ],
   },
@@ -474,6 +500,84 @@ export const projects = [
         name: "Framer Motion",
         badge:
           "https://img.shields.io/badge/Framer_Motion-0055FF?style=flat&logo=framer&logoColor=white",
+      },
+    ],
+  },
+  {
+    title: "Picskrypt",
+    description:
+      "A photo-sharing web app where people post photos with a title, a story, tags and a location. It features passwordless magic-link sign-in, quick onboarding, searchable tags with suggestions, and a clean photo page where you can like, save, share and download. Images are optimised through Cloudinary for fast loading on every device.",
+
+    icon: (
+      <MdPictureInPicture className="text-indigo-500 text-4xl sm:text-5xl" />
+    ),
+    media: PICSKRYPT,
+    isVideo: false,
+    link: "https://picskrypt.vercel.app",
+    isDownload: false,
+    status: "live",
+
+    features: [
+      "Passwordless sign-in with secure magic links sent by email",
+      "Three-step onboarding for display name, username and avatar",
+      "Photo posts with a title, story, tags and location",
+      "Search with tag suggestions and recent searches",
+      "Photo page with like, save, share, copy link and download",
+      "Owners can delete their own photos",
+      "Cloudinary image optimisation with blur placeholders for fast loading",
+      "Secure sessions using httpOnly cookies",
+      "Fully responsive design across mobile, tablet and desktop",
+    ],
+
+    stack: [
+      {
+        name: "Next.js",
+        badge:
+          "https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white",
+      },
+      {
+        name: "React",
+        badge:
+          "https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB",
+      },
+      {
+        name: "TypeScript",
+        badge:
+          "https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white",
+      },
+      {
+        name: "Tailwind CSS",
+        badge:
+          "https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white",
+      },
+      {
+        name: "Prisma",
+        badge:
+          "https://img.shields.io/badge/Prisma-2D3748?style=flat&logo=prisma&logoColor=white",
+      },
+      {
+        name: "MongoDB",
+        badge:
+          "https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white",
+      },
+      {
+        name: "Cloudinary",
+        badge:
+          "https://img.shields.io/badge/Cloudinary-3448C5?style=flat&logo=cloudinary&logoColor=white",
+      },
+      {
+        name: "Zustand",
+        badge: "https://img.shields.io/badge/Zustand-433E38?style=flat",
+      },
+      {
+        name: "Resend",
+        badge:
+          "https://img.shields.io/badge/Resend-000000?style=flat&logo=resend&logoColor=white",
+      },
+      {
+        name: "Vercel",
+        badge:
+          "https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white",
       },
     ],
   },

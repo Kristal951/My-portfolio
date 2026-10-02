@@ -105,13 +105,13 @@ const ProjectCard= ({ project }) => {
           )}
         </a>
 
-        <button
+        {/* <button
           onClick={project.onSeeMore}
           className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer group/btn"
         >
           <span>See details</span>
           <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-        </button>
+        </button> */}
       </div>
     </div>
   );

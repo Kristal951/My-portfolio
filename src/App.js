@@ -11,17 +11,14 @@ import MobileSidebar from "./components/MobileSidebar";
 const App = () => {
   const [activeLink, setActiveLink] = useState("Home");
 
-  // Update active link when hash changes
   useEffect(() => {
     const handleHashChange = () => {
       const location = window.location.hash.slice(1) || "Home";
       setActiveLink(location);
     };
 
-    // Listen to hash changes
     window.addEventListener("hashchange", handleHashChange);
 
-    // Initialize on first load
     handleHashChange();
 
     return () => window.removeEventListener("hashchange", handleHashChange);
@@ -38,11 +35,15 @@ const App = () => {
           <Home />
         </section>
 
+        <section id="Home" className="h-screen overflow-x-hidden">
+          <About />
+        </section>
+
         <section id="Projects" className="h-full overflow-x-hidden">
           <Projects />
         </section>
 
-        <section id="Arsenal" className="h-[80vh] overflow-x-hidden">
+        <section id="Arsenal" className="md:h-[80vh] h-screen overflow-x-hidden">
           <Arsenal />
         </section>
 

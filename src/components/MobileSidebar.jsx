@@ -53,11 +53,9 @@ const MobileSidebar = () => {
         </button>
       </div>
 
-      {/* Sidebar with Overlay */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black bg-opacity-50 z-[40]"
               initial={{ opacity: 0 }}
@@ -65,7 +63,6 @@ const MobileSidebar = () => {
               exit={{ opacity: 0 }}
             />
 
-            {/* Sidebar */}
             <motion.div
               ref={sidebarRef}
               className="fixed top-0 left-0 w-[80%] sm:w-[70%] h-full bg-white/70 backdrop-blur-md shadow-lg p-6 pt-24 flex flex-col gap-6 z-[80] rounded-tr-2xl rounded-br-2xl"
