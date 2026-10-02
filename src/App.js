@@ -11,7 +11,6 @@ import MobileSidebar from "./components/MobileSidebar";
 const App = () => {
   const [activeLink, setActiveLink] = useState("Home");
 
-  // Update active link when hash changes
   useEffect(() => {
     const handleHashChange = () => {
       const location = window.location.hash.slice(1) || "Home";
@@ -34,6 +33,10 @@ const App = () => {
       <main className="h-full mt-[60px] overflow-y-scroll scrollbar-hide">
         <section id="Home" className="h-screen overflow-x-hidden">
           <Home />
+        </section>
+
+        <section id="Home" className="h-screen overflow-x-hidden">
+          <About />
         </section>
 
         <section id="Projects" className="h-full overflow-x-hidden">

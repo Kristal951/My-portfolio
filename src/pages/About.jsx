@@ -39,7 +39,7 @@ const About = () => {
             />
             <AboutCard
               title="Projects"
-              description="Over 5+ projects completed"
+              description="Over 5+ projects built and deployed."
               Icon={PiSuitcaseSimpleBold}
             />
           </div>
