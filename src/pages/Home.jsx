@@ -36,7 +36,7 @@ const Home = () => {
             </div>
 
             <h4 className="md:text-xl text-lg max-w-lg text-muted">
-              Fullstack Web & Mobile App Developer focused on building scalable,
+              Fullstack Developer focused on building scalable,
               high-performance digital products with modern technologies.
             </h4>
           </div>

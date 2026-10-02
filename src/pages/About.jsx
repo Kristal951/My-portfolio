@@ -6,46 +6,47 @@ import { PiSuitcaseSimpleBold } from "react-icons/pi";
 
 const About = () => {
   return (
-    <div className="flex flex-col pt-[70px] w-full h-full justify-center items-center bg-white font-katanmruy px-4">
-      {/* <h1 className="text-3xl md:text-2xl font-geistBold mb-10">
-        {"<About Me/>"}
-      </h1> */}
-      <div className="w-full flex flex-col md:flex-row gap-0 md:gap-16 h-full items-center justify-center">
-        <div className="hidden md:flex md:w-1/2"></div>
+    <section className="relative w-full min-h-screen bg-card font-katanmruy px-4 sm:px-6 lg:px-12 py-16 md:py-24 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full max-w-3xl flex flex-col items-center text-center">
+        <h1 className="text-4xl md:text-5xl font-black text-text tracking-tighter md:mb-4 mb-2">
+          <span className="text-muted">About</span> Me
+        </h1>
 
-        <div className="flex flex-col md:w-1/2 gap-6 p-8 justify-center items-start">
-          <p className="text-center md:text-left font-katanmruy text-base leading-relaxed">
-            Hi, I’m <b>Bethel</b>, a passionate software developer with over 3+
-            years of experience. I focus on building sleek, user-friendly
-            digital experiences. I make <b>web applications</b> using the{" "}
-            <b>MERN</b> stack and create <b>mobile applications</b> using React
-            Native, blending creativity and functionality. I currently work with
-            SQWADS, helping build scalable and engaging digital products. I also
-            enjoy personal projects like Talkmore, Calcex, and Projex, inspired
-            by my drive to innovate and make technology more impactful and
-            accessible.
+        <div className="mt-8 flex flex-col gap-5 text-base lg:text-lg leading-relaxed text-slate-600">
+          <p>
+            Full-Stack Developer skilled in building scalable web and mobile
+            applications with JavaScript, TypeScript, React, Next.js, and React
+            Native. Experienced in Node.js, Express.js, PostgreSQL, Supabase,
+            and real-time applications, with a focus on clean, responsive, and
+            user-friendly digital experiences
           </p>
+          {/* <p>
+            I currently work with SQWADS, helping build scalable and engaging
+            digital products. I also enjoy personal projects like Picskrypt and
+            SkillCirqle, inspired by my drive to innovate and make technology
+            more impactful and accessible.
+          </p> */}
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-            <AboutCard
-              title="Languages"
-              description="Javascript, SCSS, HTML, CSS, React Native"
-              Icon={FaCode}
-            />
-            <AboutCard
-              title="Education"
-              description="Currently pursuing B.S.C in Computer Science"
-              Icon={RiGraduationCapFill}
-            />
-            <AboutCard
-              title="Projects"
-              description="Over 5+ projects built and deployed."
-              Icon={PiSuitcaseSimpleBold}
-            />
-          </div>
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 text-left">
+          <AboutCard
+            title="Languages"
+            description="Javascript, SCSS, HTML, CSS, React Native"
+            Icon={FaCode}
+          />
+          <AboutCard
+            title="Education"
+            description="Currently pursuing B.S.C in Computer Science"
+            Icon={RiGraduationCapFill}
+          />
+          <AboutCard
+            title="Projects"
+            description="Over 5+ projects built and deployed."
+            Icon={PiSuitcaseSimpleBold}
+          />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
