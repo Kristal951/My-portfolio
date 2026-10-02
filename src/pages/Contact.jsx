@@ -1,12 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { FaGithub, FaDiscord } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
-import { ArrowLeft, Send } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle, Loader2 } from "lucide-react";
 
 const Contact = () => {
   const [showForm, setShowForm] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState({
+    type: "",
+    message: "",
+  });
 
   const [form, setForm] = useState({
     name: "",
@@ -15,9 +21,7 @@ const Contact = () => {
     message: "",
   });
 
-  const handleChange = (
-    e
-  ) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
 
     setForm((prev) => ({
@@ -26,26 +30,53 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const subject = form.subject || `Message from ${form.name}`;
+    if (sending) return;
 
-    const body = `Hi Nonso,
+    setSending(true);
+    setStatus({
+      type: "",
+      message: "",
+    });
 
-My name is ${form.name}.
-My email is ${form.email}.
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_KEY,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          user_name: form.name,
+          user_email: form.email,
+          subject: form.subject || `Message from ${form.name}`,
+          message: form.message,
+          time: new Date().toLocaleString(),
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
 
-${form.message}
+      setStatus({
+        type: "success",
+        message: "Message sent successfully. I'll get back to you soon.",
+      });
 
-Best,
-${form.name}`;
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("EmailJS error:", error);
 
-    const mailto = `mailto:KristalDev001@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailto;
+      setStatus({
+        type: "error",
+        message:
+          "Something went wrong while sending your message. Please try again.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -53,11 +84,7 @@ ${form.name}`;
       id="contact"
       className="flex min-h-screen w-full items-center justify-center border-t border-[var(--border)] bg-[var(--bg)] px-6 py-24"
     >
-      <div
-        className={`w-full rounded-3xl border border-[var(--border)] bg-[var(--card)] shadow-sm transition-all duration-500 ${
-          showForm ? "max-w-3xl" : "max-w-3xl"
-        }`}
-      >
+      <div className="w-full max-w-3xl rounded-3xl border border-[var(--border)] bg-[var(--card)] shadow-sm transition-all duration-500">
         {!showForm ? (
           <div className="flex flex-col items-center justify-center p-8 text-center md:p-16">
             <div className="w-full">
@@ -73,11 +100,16 @@ ${form.name}`;
               </p>
             </div>
 
-
             <div className="py-9">
               <button
                 type="button"
-                onClick={() => setShowForm(true)}
+                onClick={() => {
+                  setShowForm(true);
+                  setStatus({
+                    type: "",
+                    message: "",
+                  });
+                }}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--text)] px-7 py-3.5 text-base font-bold text-[var(--bg)] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-indigo-600 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20 active:translate-y-0"
               >
                 <Send className="h-4 w-4" />
@@ -134,11 +166,16 @@ ${form.name}`;
             </div>
           </div>
         ) : (
-
           <div className="p-6 sm:p-8 md:p-12">
             <button
               type="button"
-              onClick={() => setShowForm(false)}
+              onClick={() => {
+                setShowForm(false);
+                setStatus({
+                  type: "",
+                  message: "",
+                });
+              }}
               className="group mb-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--muted)] transition-colors hover:text-[var(--text)]"
             >
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -157,7 +194,6 @@ ${form.name}`;
             </div>
 
             <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-              {/* Name + Email */}
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label
@@ -200,7 +236,6 @@ ${form.name}`;
                 </div>
               </div>
 
-              {/* Subject */}
               <div>
                 <label
                   htmlFor="subject"
@@ -220,7 +255,6 @@ ${form.name}`;
                 />
               </div>
 
-              {/* Message */}
               <div>
                 <label
                   htmlFor="message"
@@ -232,6 +266,7 @@ ${form.name}`;
                 <textarea
                   id="message"
                   name="message"
+                  type="text"
                   required
                   rows={6}
                   value={form.message}
@@ -241,22 +276,48 @@ ${form.name}`;
                 />
               </div>
 
-              {/* Submit */}
+              {status.message && (
+                <div
+                  className={`flex items-start gap-2 rounded-xl border px-4 py-3 text-sm ${
+                    status.type === "success"
+                      ? "border-green-500/20 bg-green-500/10 text-green-600"
+                      : "border-red-500/20 bg-red-500/10 text-red-600"
+                  }`}
+                >
+                  {status.type === "success" && (
+                    <CheckCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                  )}
+
+                  <span>{status.message}</span>
+                </div>
+              )}
+
               <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:justify-end">
                 <button
                   type="button"
+                  disabled={sending}
                   onClick={() => setShowForm(false)}
-                  className="rounded-xl border border-[var(--border)] px-5 py-3 text-sm font-semibold text-[var(--muted)] transition-colors hover:border-[var(--text)] hover:text-[var(--text)]"
+                  className="rounded-xl border border-[var(--border)] px-5 py-3 text-sm font-semibold text-[var(--muted)] transition-colors hover:border-[var(--text)] hover:text-[var(--text)] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   Cancel
                 </button>
 
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--text)] px-6 py-3 text-sm font-bold text-[var(--bg)] transition-all duration-300 hover:bg-indigo-600 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20 active:scale-[0.98]"
+                  disabled={sending}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--text)] px-6 py-3 text-sm font-bold text-[var(--bg)] transition-all duration-300 hover:bg-indigo-600 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  <Send className="h-4 w-4" />
-                  Send Message
+                  {sending ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4" />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </div>
             </form>
@@ -268,3 +329,4 @@ ${form.name}`;
 };
 
 export default Contact;
+

@@ -30,16 +30,16 @@ const TopBar = ({ setActiveLink, activeLink }) => {
               key={navlink.id}
               href={`#${navlink.path}`}
               onClick={() => setActiveLink(navlink.path)}
-              className={`relative px-4 py-2 text-sm md:text-base font-medium transition-colors rounded-full ${
+              className={`relative px-6 py-2 text-sm md:text-base font-medium transition-colors rounded-full ${
                 isActive
-                  ? "text-foreground font-semibold"
+                  ? "text-white font-semibold"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {isActive && (
                 <motion.span
                   layoutId="activeTopBarIndicator"
-                  className="absolute inset-0 bg-muted rounded-full -z-10"
+                  className="absolute inset-0 bg-black rounded-full -z-10"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
