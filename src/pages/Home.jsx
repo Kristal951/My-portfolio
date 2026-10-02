@@ -42,14 +42,18 @@ const Home = () => {
           </div>
 
           <div className="flex flex-col md:flex-row lg:flex-row items-center justify-center gap-3">
-            <button
+            <a
+              href="/downloads/CV.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 flex items-center gap-2 py-3 hover:scale-105 text-xl border-[2px] text-white bg-black rounded-lg btn"
               // whileHover="changeBg"
               // variants={buttonVariant}
             >
               <Download />
               <p>Download CV</p>
-            </button>
+            </a>
 
             <a
               href="#Contact"

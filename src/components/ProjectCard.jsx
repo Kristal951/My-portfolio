@@ -3,7 +3,8 @@ import { ArrowUpRight, Download, ChevronRight, Folder } from "lucide-react";
 
 const ProjectCard= ({ project }) => {
   return (
-    <div className="bg-card text-card-foreground w-full max-w-sm h-[450px] flex flex-col justify-between rounded-2xl overflow-hidden group border border-border/80 hover:border-border/100 shadow-sm hover:shadow-md transition-all duration-300">
+    <div className="bg-card text-card-foreground w-full max-w-sm h-[500px] flex flex-col justify-between rounded-2xl overflow-hidden group border border-border/80 hover:border-border/100 shadow-sm hover:shadow-md transition-all duration-300">
+      
       <div className="flex flex-col min-h-0">
         <div className="w-full h-48 bg-muted/40 overflow-hidden relative shrink-0">
           {project.media ? (
