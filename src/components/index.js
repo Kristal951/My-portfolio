@@ -26,15 +26,22 @@ import { AiFillHome } from "react-icons/ai";
 import { BsPersonCircle } from "react-icons/bs";
 import { FiFolder } from "react-icons/fi";
 import { BiCodeAlt } from "react-icons/bi";
+<<<<<<< HEAD
 import { MdContactMail, MdPictureInPicture } from "react-icons/md";
+=======
+import { MdContactMail } from "react-icons/md";
+>>>>>>> 5337615507aabd6b1fef2775fe2bef523f9f500f
 import { FaCalculator, FaHeart, FaTasks, FaUtensils } from "react-icons/fa";
 
 import CalcexSR from "../assets/Videos/Calcex_screen_record.mp4";
 import TodoAppSR from "../assets/Videos/TodoMobile_screen_record.mp4";
 import LKD_SCRD from "../assets/Videos/LKD_SCRD.mp4";
 import MIMI_SPICY_OFFALS from "../assets/Videos/Mimi_spicy_offals.webm";
+<<<<<<< HEAD
 import PICSKRYPT from "../assets/images/Picskrypt_ss.png";
 import SKILLCIRQLE from "../assets/images/SkillCirqle.png";
+=======
+>>>>>>> 5337615507aabd6b1fef2775fe2bef523f9f500f
 
 export const Navlinks = [
   {
@@ -97,6 +104,10 @@ export const links = [
 ];
 
 export const AllSkill = [
+<<<<<<< HEAD
+=======
+  // Frontend
+>>>>>>> 5337615507aabd6b1fef2775fe2bef523f9f500f
   {
     id: "html",
     label: "HTML5",
