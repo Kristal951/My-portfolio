@@ -5,10 +5,7 @@ const ProjectCard= ({ project }) => {
   return (
     <div className="bg-card text-card-foreground w-full max-w-sm h-[500px] flex flex-col justify-between rounded-2xl overflow-hidden group border border-border/80 hover:border-border/100 shadow-sm hover:shadow-md transition-all duration-300">
       
-      {/* Top Content Area */}
       <div className="flex flex-col min-h-0">
-        
-        {/* Media Preview Container */}
         <div className="w-full h-48 bg-muted/40 overflow-hidden relative shrink-0">
           {project.media ? (
             project.isVideo ? (
@@ -44,7 +41,6 @@ const ProjectCard= ({ project }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
         </div>
 
-        {/* Text & Tech Details Container */}
         <div className="p-5 flex flex-col gap-2.5 overflow-hidden">
           
           {/* Tech Stack List */}
