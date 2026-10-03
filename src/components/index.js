@@ -337,7 +337,7 @@ export const projects = [
     icon: <FaHeart className="text-pink-500 text-4xl sm:text-5xl" />,
     media: LKD_SCRD,
     isVideo: true,
-    link: "https://lakadel.vercel.app",
+    link: "https://lakadel-store.vercel.app",
     isDownload: false,
     status: "production",
     github: "https://github.com/Kristal951/Lakadel.git",

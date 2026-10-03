@@ -36,25 +36,20 @@ const Home = () => {
             </div>
 
             <h4 className="md:text-xl text-lg max-w-lg text-muted">
-              Fullstack Developer focused on building scalable,
-              high-performance digital products with modern technologies.
+              Fullstack Developer focused on building scalable, high-performance
+              digital products with modern technologies.
             </h4>
           </div>
 
           <div className="flex flex-col md:flex-row lg:flex-row items-center justify-center gap-3">
             <a
               href="/downloads/CV.pdf"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
+              download="Bethel-Chinonso-Chukwu-CV.pdf"
               className="px-5 flex items-center gap-2 py-3 hover:scale-105 text-xl border-[2px] text-white bg-black rounded-lg btn"
-              // whileHover="changeBg"
-              // variants={buttonVariant}
             >
-              <Download />
-              <p>Download CV</p>
+              <Download aria-hidden="true" />
+              <span>Download CV</span>
             </a>
-
             <a
               href="#Contact"
               className="px-5 py-3 text-xl border-[2px] border-border hover:bg-black/5 rounded-lg btn"
