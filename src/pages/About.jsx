@@ -15,7 +15,7 @@ const About = () => {
           <h1 className="text-3xl font-black tracking-tight text-text sm:text-4xl md:text-5xl md:mb-4 mb-2">
             <span className="text-muted">About</span> Me
           </h1>
-          <p className="text-muted text-center text-base md:text-lg max-w-md leading-relaxed">
+          <p className="text-muted text-center text-base md:text-lg leading-relaxed md:text-center w-full">
             A little introduction
           </p>
         </header>
