@@ -15,12 +15,12 @@ const About = () => {
           <h1 className="text-3xl font-black tracking-tight text-text sm:text-4xl md:text-5xl md:mb-4 mb-2">
             <span className="text-muted">About</span> Me
           </h1>
-          <p className="text-muted text-base md:text-lg max-w-md leading-relaxed">
+          <p className="text-muted text-center text-base md:text-lg max-w-md leading-relaxed">
             A little introduction
           </p>
         </header>
         <div className="mx-auto w-full max-w-3xl space-y-5 text-[15px] leading-7 text-muted sm:space-y-6 sm:text-base sm:leading-8 md:text-lg">
-          <p>
+          <p className="md:text-center">
             I'm Bethel Chinonso Chukwu, professionally known as{" "}
             <span className="font-bold text-text">Kristal Dev</span> — a
             Full-Stack Developer and Co-founder & Chief Technology Officer of{" "}
@@ -38,7 +38,7 @@ const About = () => {
             creating scalable, responsive, and user-friendly digital products.
           </p>
 
-          <p>
+          <p className=" md:text-center">
             I currently work as a Full-Stack Web Developer at{" "}
             <span className="font-semibold text-text">
               Nexentrix Group Limited
