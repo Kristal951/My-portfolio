@@ -1,3 +1,4 @@
+
 import React from "react";
 import AboutCard from "../components/AboutCard";
 import { FaCode } from "react-icons/fa6";
@@ -6,42 +7,58 @@ import { PiSuitcaseSimpleBold } from "react-icons/pi";
 
 const About = () => {
   return (
-    <section className="relative w-full overflow-y-hidden h-full bg-card font-katanmruy px-4 sm:px-6 lg:px-12 py-16 md:py-24 flex items-center justify-center overflow-hidden">
-      <div className="relative w-full max-w-3xl flex flex-col items-center text-center">
-        <h1 className="text-4xl md:text-5xl font-black text-text tracking-tighter md:mb-4 mb-2">
+    <section className="relative flex h-full w-full items-center justify-center overflow-hidden bg-card px-4 py-16 font-katanmruy sm:px-6 md:py-24 lg:px-12">
+      <div className="relative flex w-full max-w-4xl flex-col items-center text-center">
+        <h1 className="mb-2 text-4xl font-black tracking-tighter text-text md:mb-4 md:text-5xl">
           <span className="text-muted">About</span> Me
         </h1>
 
-        <div className="mt-8 flex flex-col gap-5 text-base lg:text-lg leading-relaxed text-slate-600">
+        <div className="mt-8 flex flex-col gap-5 text-base leading-relaxed text-muted lg:text-lg">
           <p>
-            Full-Stack Developer skilled in building scalable web and mobile
-            applications with JavaScript, TypeScript, React, Next.js, and React
-            Native. Experienced in Node.js, Express.js, PostgreSQL, Supabase,
-            and real-time applications, with a focus on clean, responsive, and
-            user-friendly digital experiences
+            I'm Bethel Chinonso Chukwu, professionally known as <span className="font-bold text-black">Kristal Dev</span> —
+            a Full-Stack Developer and Co-founder & Chief Technology Officer
+            of{" "}
+            <a
+              href="https://www.skillcirqle.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-text underline hover:text-blue-500 underline-offset-4"
+            >
+              SkillCirqle
+            </a>
+            . I build web and mobile applications using JavaScript,
+            TypeScript, React, Next.js, and React Native, with experience in
+            Node.js, Express.js, PostgreSQL, and Supabase. I focus on building
+            scalable, responsive, and user-friendly digital experiences.
           </p>
-          {/* <p>
-            I currently work with SQWADS, helping build scalable and engaging
-            digital products. I also enjoy personal projects like Picskrypt and
-            SkillCirqle, inspired by my drive to innovate and make technology
-            more impactful and accessible.
-          </p> */}
+
+          <p>
+            I currently work as a Full-Stack Web Developer at{" "}
+            <b className="text-text">Nexentrix Group Limited</b>, where I
+            independently develop and maintain a workforce intelligence
+            platform, building features across dashboards, authentication,
+            access control, and backend services. Beyond my professional
+            work, I enjoy building projects like Picskrypt and exploring
+            ideas that use technology to solve practical problems.
+          </p>
         </div>
 
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 text-left">
+        <div className="mt-12 grid w-full grid-cols-1 gap-4 text-left sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           <AboutCard
-            title="Languages"
-            description="Javascript, SCSS, HTML, CSS, React Native"
+            title="Technologies"
+            description="JavaScript, TypeScript, React, Next.js, Node.js, HTML, CSS"
             Icon={FaCode}
           />
+
           <AboutCard
             title="Education"
-            description="Currently pursuing B.S.C in Computer Science"
+            description="Pursuing a B.Sc. in Computer Science at the University of Abuja"
             Icon={RiGraduationCapFill}
           />
+
           <AboutCard
-            title="Projects"
-            description="Over 5+ projects built and deployed."
+            title="Experience"
+            description="Professional development experience, product leadership, and deployed projects"
             Icon={PiSuitcaseSimpleBold}
           />
         </div>

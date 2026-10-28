@@ -1,5 +1,5 @@
 import React from "react";
-import Pic from "../assets/images/EditedPic.png";
+import Pic from "../assets/images/Kristal_Dev.jpg";
 import { Download } from "lucide-react";
 
 const Home = () => {
@@ -29,15 +29,20 @@ const Home = () => {
           // whileInView="visible"
           // variants={textVariants}
         >
-          <div className="flex flex-col text-center gap-2 px-4">
-            <div className="">
-              <p className="text-base">Hello. i'm</p>
-              <h2 className="text-3xl font-bold">Bethel Wisdom</h2>
-            </div>
+          <div className="flex flex-col text-center gap-3 px-4">
+            <p className="text-base text-muted">Hello, I'm</p>
 
-            <h4 className="md:text-xl text-lg max-w-lg text-muted">
-              Fullstack Developer focused on building scalable, high-performance
-              digital products with modern technologies.
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Bethel Chinonso Chukwu
+            </h2>
+
+            <p className="text-muted font-medium">
+              Professionally known as <span className="text-black font-medium">Kristal Dev</span>
+            </p>
+
+            <h4 className="md:text-xl text-lg max-w-xl text-muted leading-relaxed">
+              Full-Stack Developer building scalable web and mobile applications
+              that turn ideas into impactful digital products.
             </h4>
           </div>
 
@@ -48,13 +53,13 @@ const Home = () => {
               className="px-5 flex items-center gap-2 py-3 hover:scale-105 text-xl border-[2px] text-white bg-black rounded-lg btn"
             >
               <Download aria-hidden="true" />
-              <span>Download CV</span>
+              <span>Download My CV</span>
             </a>
             <a
               href="#Contact"
               className="px-5 py-3 text-xl border-[2px] border-border hover:bg-black/5 rounded-lg btn"
             >
-              Contact Me
+              Let's Talk
             </a>
           </div>
         </div>

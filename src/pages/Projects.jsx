@@ -5,12 +5,12 @@ import ProjectCard from "../components/ProjectCard";
 const Projects = () => {
   return (
     <section className="w-full h-full md:py-10 py-6 bg-background">
-      <div className="mb-10 px-6 space-y-2">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
-          <span className="text-muted font-light">Featured</span> Projects
+      <div className="mb-10 px-6 w-full flex flex-col items-center justify-center">
+        <h1 className="mb-2 text-4xl font-black tracking-tighter text-text md:mb-4 md:text-5xl">
+          <span className="text-muted">Featured</span> Projects
         </h1>
-        <p className="text-sm md:text-base text-muted-foreground max-w-md leading-relaxed">
-          A curated selection of recent engineering work, product design, and open-source side projects.
+        <p className="text-sm md:text-base text-muted max-w-md text-center leading-relaxed">
+          A curated selection of my work and side projects.
         </p>
       </div>
 
