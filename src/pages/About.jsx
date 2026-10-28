@@ -12,10 +12,10 @@ const About = () => {
     >
       <div className="relative mx-auto flex w-full max-w-5xl flex-col">
         <header className="mb-8 text-center sm:mb-10 md:mb-12">
-          <h1 className="text-3xl font-black tracking-tight text-text sm:text-4xl md:text-5xl">
+          <h1 className="text-3xl font-black tracking-tight text-text sm:text-4xl md:text-5xl md:mb-4 mb-2">
             <span className="text-muted">About</span> Me
           </h1>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-muted sm:text-sm">
+          <p className="text-muted text-base md:text-lg max-w-md leading-relaxed">
             A little introduction
           </p>
         </header>
